@@ -1,0 +1,8 @@
+.mat
+*.mat
+.Rproj.user
+.RDS
+*.RDS
+.Rhistory
+*/.DS_Store
+.DS_Store
