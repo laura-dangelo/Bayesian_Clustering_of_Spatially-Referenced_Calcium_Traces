@@ -1,0 +1,25 @@
+Package: bSCDCsampler
+Type: Package
+Title: Gibbs sampler of "Decoding Neuronal Ensembles from Spatially-Referenced Calcium Traces: A Bayesian Semiparametric Approach"
+Version: 0.0.1
+Date: 2026-03-16
+Authors@R: c(
+    person("Laura", "D'Angelo", ,"laura.dangelo@unimib.it", 
+    role = c("aut", "cre", "cph"),
+    comment = c(ORCID = "0000-0003-2978-4702")),
+    person("Francesco", "Denti", ,"francescodenti.personal@gmail.com", 
+    role = c("aut"),
+    comment = c(ORCID = "0000-0001-5034-7414"))
+  )
+Maintainer: Laura D'Angelo <laura.dangelo@unimib.it>
+Description: The package contains the Gibbs sampler to sample from the posterior
+    distribution of the parameters of the model of D'Angelo, Denti, Canale and Guindani
+    (2026) "Decoding Neuronal Ensembles from Spatially-Referenced Calcium Traces: 
+    A Bayesian Semiparametric Approach". The method performs the simultaneous
+    deconvolution of calcium traces and clustering of neurons based on the underlying
+    spiking activity. 
+License: MIT + file LICENSE
+Imports: Rcpp (>= 1.0.7)
+Encoding: UTF-8
+LinkingTo: Rcpp, RcppArmadillo, RcppDist, RcppProgress
+RoxygenNote: 7.3.2
