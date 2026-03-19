@@ -74,9 +74,9 @@ The key elements of this folder are the following:
 │   ├── 03_extract_results.R <br/>
 │   └── 04_plot_results.R <br/>
 └── 03_computational_cost&ensp;# simulation study to evaluate the computational cost <br/>
-&ensp;&ensp;├── 01_simulate_data.R <br/>
-&ensp;&ensp;├── 02_run_gibbs.R <br/>
-&ensp;&ensp;└── 03_extract_results.R <br/>
+&ensp;&ensp;&ensp;├── 01_simulate_data.R <br/>
+&ensp;&ensp;&ensp;├── 02_run_gibbs.R <br/>
+&ensp;&ensp;&ensp;└── 03_extract_results.R <br/>
 
 
 
