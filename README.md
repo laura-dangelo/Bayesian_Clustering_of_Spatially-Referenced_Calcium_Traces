@@ -23,7 +23,7 @@ Key structure:
 
 ### Data
 All analyses can be replicated starting from the original .mat file (M3424F_data_togo_neuron_behav_multiTrials_072621.mat), which is freely downloadable from the [Mendeley data repository](https://doi.org/10.17632/tnbwfw2pg2.2). However, some computations can be time-consuming, and we do not recommend starting from scratch.
-To this end, we provide intermediate .RDS outputs to ease replication. All files are available in the Google Drive [folder](https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing). The name of each folder corresponds to the path where the files should be copied.
+To this end, we provide intermediate .RDS outputs to ease replication. Large files are available in the Google Drive [folder](https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing). The name of each folder corresponds to the path where the files should be copied.
 
 - `Data` contains the data extracted from the original Matlab file. They can be extracted from the .mat file using the `Code > 01_data_preprocessing` scripts. 
 - `*/results` contain the output of the Gibbs sampler algorithm.
