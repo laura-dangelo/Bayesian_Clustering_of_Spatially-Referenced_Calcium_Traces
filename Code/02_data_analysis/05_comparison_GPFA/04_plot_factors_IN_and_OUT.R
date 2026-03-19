@@ -115,22 +115,12 @@ p_GP4 = ggplot(data = df_GP[df_GP$fac == "Factor 1 - OUT",], aes(x = time, y = y
 p_GP4
 
 
-pp = wrap_plots(
-  p_GP1, plot_spacer(),
-  p_GP2, p_GP4, 
-  p_GP3, plot_spacer(),
-  ncol = 2
-)
-pp
-
-ggsave(pp, file = "02_data_analysis/05_comparison_GPFA/output_images/lGP_time_IN_n_OUT.pdf",
-       width = 8, height =8)
-
 
 pp=wrap_plots(
   p_GP1, p_GP2, p_GP3, 
   ncol = 3
 )
+pp
 ggsave(pp, file = "02_data_analysis/05_comparison_GPFA/output_images/lGP_time_IN.pdf",
        width = 11, height =3)
 
