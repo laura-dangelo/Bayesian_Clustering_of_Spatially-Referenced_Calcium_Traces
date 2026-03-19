@@ -30,7 +30,7 @@ To this end, we provide intermediate .RDS outputs to ease replication. Large fil
 
 The Google Drive folder contains:
 - `Data` contains the data extracted from the original Matlab file, produced by the `Code/01_data_preprocessing` scripts. 
-- `*/results` contain the output of the Gibbs sampler algorithm.
+- `*/results` contain the output of the Gibbs sampler algorithm or of the deconvolution algorithms.
 
 
 
