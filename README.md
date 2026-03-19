@@ -1,6 +1,6 @@
 # Bayesian_Clustering_of_Spatially-Referenced_Calcium_Traces
 
-This repository contains the code for replication of the results in the paper "Decoding Neuronal Ensembles from Spatially-Referenced Calcium Traces: A Bayesian Semiparametric Approach"  by D'Angelo, Denti, Canale, and Guindani (available on [arXiv](https://arxiv.org/abs/2508.09576)). It also contains the R package `bSCDCsampler`, which implements the Gibbs sampler used for posterior inference (see [Installation](#installation)).
+This repository contains the code for replication of the results in the paper __"Decoding Neuronal Ensembles from Spatially-Referenced Calcium Traces: A Bayesian Semiparametric Approach"__ by D'Angelo, Denti, Canale, and Guindani (available on [arXiv](https://arxiv.org/abs/2508.09576)). It also contains the R package `bSCDCsampler`, which implements the Gibbs sampler used for posterior inference (see [Installation](#installation)).
 
 ## Structure of the repository
 The `Code` folder contains the R project and should be used as the main directory to run the code.
