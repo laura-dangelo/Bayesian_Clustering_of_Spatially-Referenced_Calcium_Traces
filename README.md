@@ -21,14 +21,15 @@ Key structure:
 The `Code` folder contains the R project and should be used as the main directory to run the code.
 The structure of the repository is designed to facilitate the streamlined execution of all scripts required to replicate the analyses. Please do not change the folders’ names or paths to avoid errors. Each folder should be run following the order given by the numbers in the name; similarly, within each folder, scripts should be executed following the numbering.
 
-The `Data` folder contains the original .mat file and the cleaned .RDS files produced by the scripts in `Code/01_data_preprocessing`.
+The `Data` folder contains the raw and cleaned data used in the analyses. See also the [Using the Repo](#using-the-repo) section below.
 
 
 ## Using the Repo
 All analyses can be replicated starting from the original .mat file (M3424F_data_togo_neuron_behav_multiTrials_072621.mat), which is freely downloadable from the [Mendeley data repository](https://doi.org/10.17632/tnbwfw2pg2.2). However, some computations can be time-consuming, and we do not recommend starting from scratch.
-To this end, we provide intermediate .RDS outputs to ease replication. Large files are available in the Google Drive [folder](https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing). The name of each folder corresponds to the path where the files should be copied.
+To this end, we provide intermediate .RDS outputs to ease replication. Large files are available in the Google Drive [folder](https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing) and should be downloaded before running the scripts. The name of each folder corresponds to the path where the files should be copied.
 
-- `Data` contains the data extracted from the original Matlab file. They can be extracted from the .mat file using the `Code > 01_data_preprocessing` scripts. 
+The Google Drive folder contains:
+- `Data` contains the data extracted from the original Matlab file, produced by the `Code/01_data_preprocessing` scripts. 
 - `*/results` contain the output of the Gibbs sampler algorithm.
 
 
