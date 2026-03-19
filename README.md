@@ -34,16 +34,16 @@ To this end, we provide intermediate .RDS outputs to ease replication. Large fil
 #### Code > 02_data_analysis
 The key elements of this folder are the following:
 
-├── **01_bSCDC_individual_trials** &ensp;# single-window analyses <br/>
+├── **01_bSCDC_individual_trials** &ensp;&ensp;&ensp;&ensp;# single-window analyses <br/>
 │   ├── 01_plot_data.R <br/>
 │   ├── 02_run_gibbs.R <br/>
 │   ├── 03_analyze_individual_runs.R <br/>
 │   └── 04_PSM_neurons.R <br/>
-├── **02_bSCDC_neuronal_response_to_position** &ensp;# analyses on the overall neuronal activity <br/>
+├── **02_bSCDC_neuronal_response_to_position** &ensp;&ensp;&ensp;&ensp;# analyses on the overall neuronal activity <br/>
 │   ├── 00_auxiliary_functions_DONT_RUN.R <br/>
 │   ├── 01_plot_cluster_complexity.R <br/>
 │   └── 02_plot_activation_maps.R <br/>
-├── **03_bSCDC_sensitivity_study** &ensp;# sensitivity studies on the prior parameters <br/>
+├── **03_bSCDC_sensitivity_study** &ensp;&ensp;&ensp;&ensp;# sensitivity studies on the prior parameters <br/>
 │   ├── A_sensitivity_alow_01_run_gibbs.R <br/>
 │   ├── A_sensitivity_alow_02_analyze_results.R <br/>
 │   ├── A_sensitivity_alow_03_compare_results.R <br/>
@@ -51,11 +51,11 @@ The key elements of this folder are the following:
 │   ├── B_sensitivity_PSBP_02_analyze_results.R <br/>
 │   ├── B_sensitivity_PSBP_03_compare_results.R <br/>
 │   └── B_sensitivity_PSBP_04_toy_example.R <br/>
-├── **04_comparison_two-step** &ensp;# comparison with the two-step deconvolution and clustering <br/>
+├── **04_comparison_two-step** &ensp;&ensp;&ensp;&ensp;# comparison with the two-step deconvolution and clustering <br/>
 │   ├── 01_spike_detection_JW.R <br/>
 │   ├── 02_run_kmeans.R <br/>
 │   └── 03_plot_results.R <br/>
-└── **05_comparison_GPFA** &ensp;# comparison with Bayesian Gaussian process factor analysis <br/>
+└── **05_comparison_GPFA** &ensp;&ensp;&ensp;&ensp;# comparison with Bayesian Gaussian process factor analysis <br/>
 
 
 
@@ -63,18 +63,18 @@ The key elements of this folder are the following:
 #### Code > 03_simulation_study
 The key elements of this folder are the following:
 
-├── 01_sensitivity_study&ensp;# sensitivity studies on synthetic data <br/>
+├── 01_sensitivity_study&ensp;&ensp;&ensp;&ensp;# sensitivity studies on synthetic data <br/>
 │   ├── 00_auxiliary_functions_DONT_RUN.R <br/>
 │   ├── 01_simulate_data.R <br/>
 │   ├── 02_run_gibbs.R <br/>
 │   ├── 03_extract_results.R <br/>
 │   └── 04_plot_results.R <br/>
-├── 02_comparison_two-step_synthetic_data&ensp;# comparison with the two-step method on synthetic data <br/>
+├── 02_comparison_two-step_synthetic_data&ensp;&ensp;&ensp;&ensp;# comparison with the two-step method on synthetic data <br/>
 │   ├── 01_spike_detection_JW.R <br/>
 │   ├── 02_run_kmeans_compute_ARI.R <br/>
 │   ├── 03_extract_results.R <br/>
 │   └── 04_plot_results.R <br/>
-└── 03_computational_cost&ensp;# simulation study to evaluate the computational cost <br/>
+└── 03_computational_cost&ensp;&ensp;&ensp;&ensp;# simulation study to evaluate the computational cost <br/>
 &ensp;&ensp;&ensp;├── 01_simulate_data.R <br/>
 &ensp;&ensp;&ensp;├── 02_run_gibbs.R <br/>
 &ensp;&ensp;&ensp;└── 03_extract_results.R <br/>
