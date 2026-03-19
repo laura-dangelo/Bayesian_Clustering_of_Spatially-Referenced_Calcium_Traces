@@ -2,9 +2,7 @@
 
 This repository contains the code for replication of the results in the paper "_Decoding Neuronal Ensembles from Spatially-Referenced Calcium Traces: A Bayesian Semiparametric Approach_" by D'Angelo, Denti, Canale, and Guindani (available on [arXiv](https://arxiv.org/abs/2508.09576)). It also contains the R package `bSCDCsampler`, which implements the Gibbs sampler used for posterior inference (see [Installation](#installation)).
 
-## Structure of the repository
-The `Code` folder contains the R project and should be used as the main directory to run the code.
-The structure of the repository is designed to facilitate the streamlined execution of all scripts required to replicate the analyses. Please do not change the folders’ names or paths to avoid errors. Each folder should be run following the order given by the numbers in the name; similarly, within each folder, scripts should be executed following the numbering.
+## Structure of the Repository
 
 Key structure:
 <ul>
@@ -16,9 +14,14 @@ Key structure:
       <li> bSCDCsampler : R package implementing the Gibbs sampler.</li>
     </ul>
   </li>
-  <li> Data : contains the original .mat file and the cleaned .RDS files produced by the scripts in 01_data_preprocessing. </li>
+  <li> Data </li>
   <li> Manuscript </li>
 </ul>
+
+The `Code` folder contains the R project and should be used as the main directory to run the code.
+The structure of the repository is designed to facilitate the streamlined execution of all scripts required to replicate the analyses. Please do not change the folders’ names or paths to avoid errors. Each folder should be run following the order given by the numbers in the name; similarly, within each folder, scripts should be executed following the numbering.
+
+The `Data` folder contains the original .mat file and the cleaned .RDS files produced by the scripts in `Code/01_data_preprocessing`.
 
 
 ## Using the Repo
