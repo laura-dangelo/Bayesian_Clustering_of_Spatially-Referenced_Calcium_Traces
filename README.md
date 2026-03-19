@@ -2,7 +2,7 @@
 
 This repository contains the code for replication of the results in the paper "Decoding Neuronal Ensembles from Spatially-Referenced Calcium Traces: A Bayesian Semiparametric Approach"  by D'Angelo, Denti, Canale, and Guindani (available on [arXiv](https://arxiv.org/abs/2508.09576)). It also contains the R package `bSCDCsampler`, which implements the Gibbs sampler used for posterior inference (see [Installation](#installation)).
 
-### Structure of the repository
+## Structure of the repository
 The `Code` folder contains the R project and should be used as the main directory to run the code.
 The structure of the repository is designed to facilitate the streamlined execution of all scripts required to replicate the analyses. Please do not change the folders’ names or paths to avoid errors. Each folder should be run following the order given by the numbers in the name; similarly, within each folder, scripts should be executed following the numbering.
 
@@ -21,7 +21,7 @@ Key structure:
 </ul>
 
 
-### Data
+## Data
 All analyses can be replicated starting from the original .mat file (M3424F_data_togo_neuron_behav_multiTrials_072621.mat), which is freely downloadable from the [Mendeley data repository](https://doi.org/10.17632/tnbwfw2pg2.2). However, some computations can be time-consuming, and we do not recommend starting from scratch.
 To this end, we provide intermediate .RDS outputs to ease replication. Large files are available in the Google Drive [folder](https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing). The name of each folder corresponds to the path where the files should be copied.
 
@@ -30,6 +30,7 @@ To this end, we provide intermediate .RDS outputs to ease replication. Large fil
 
 
 
+## Code
 #### Code > 02_data_analysis
 The key elements of this folder are the following:
 
@@ -80,7 +81,7 @@ The key elements of this folder are the following:
 
 
 
-### Installation
+## Installation
 The Code folder contains the binary file `bSCDCsampler_0.0.1.tar.gz`. You can install the package on R using
 ``` install.packages(bSCDCsampler_0.0.1.tar.gz, repos = NULL, type="source") ```
 
