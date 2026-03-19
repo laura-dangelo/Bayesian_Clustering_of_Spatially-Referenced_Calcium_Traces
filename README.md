@@ -16,7 +16,7 @@ Key structure:
       <li> bSCDCsampler : R package implementing the Gibbs sampler.</li>
     </ul>
   </li>
-  <li> Data </li>
+  <li> Data : contains the cleaned .RDS files produced by the scripts in 01_data_preprocessing. </li>
   <li> Manuscript </li>
 </ul>
 
