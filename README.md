@@ -62,18 +62,18 @@ The key elements of this folder are the following:
 #### Code > 03_simulation_study
 The key elements of this folder are the following:
 
-├── 01_sensitivity_study    # sensitivity studies on the prior parameters on synthetic data <br/>
+├── 01_sensitivity_study    # sensitivity studies on synthetic data <br/>
 │   ├── 00_auxiliary_functions_DONT_RUN.R <br/>
 │   ├── 01_simulate_data.R <br/>
 │   ├── 02_run_gibbs.R <br/>
 │   ├── 03_extract_results.R <br/>
 │   └── 04_plot_results.R <br/>
-├── 02_comparison_two-step_synthetic_data    # comparison with the two-step deconvolution and clustering on synthetic data <br/>
+├── 02_comparison_two-step_synthetic_data    # comparison with the two-step method on synthetic data <br/>
 │   ├── 01_spike_detection_JW.R <br/>
 │   ├── 02_run_kmeans_compute_ARI.R <br/>
 │   ├── 03_extract_results.R <br/>
 │   └── 04_plot_results.R <br/>
-└── 03_computational_cost    # simulation study to evaluate the impact of n and T on the computational cost <br/>
+└── 03_computational_cost    # simulation study to evaluate the computational cost <br/>
     ├── 01_simulate_data.R <br/>
     ├── 02_run_gibbs.R <br/>
     └── 03_extract_results.R <br/>
