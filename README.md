@@ -63,18 +63,18 @@ The key elements of this folder are the following:
 #### Code > 03_simulation_study
 The key elements of this folder are the following:
 
-├── 01_sensitivity_study&ensp;&ensp;&ensp;&ensp;# sensitivity studies on synthetic data <br/>
+├── **01_sensitivity_study** &ensp;&ensp;&ensp;&ensp;# sensitivity studies on synthetic data <br/>
 │   ├── 00_auxiliary_functions_DONT_RUN.R <br/>
 │   ├── 01_simulate_data.R <br/>
 │   ├── 02_run_gibbs.R <br/>
 │   ├── 03_extract_results.R <br/>
 │   └── 04_plot_results.R <br/>
-├── 02_comparison_two-step_synthetic_data&ensp;&ensp;&ensp;&ensp;# comparison with the two-step method on synthetic data <br/>
+├── **02_comparison_two-step_synthetic_data** &ensp;&ensp;&ensp;&ensp;# comparison with the two-step method on synthetic data <br/>
 │   ├── 01_spike_detection_JW.R <br/>
 │   ├── 02_run_kmeans_compute_ARI.R <br/>
 │   ├── 03_extract_results.R <br/>
 │   └── 04_plot_results.R <br/>
-└── 03_computational_cost&ensp;&ensp;&ensp;&ensp;# simulation study to evaluate the computational cost <br/>
+└── **03_computational_cost** &ensp;&ensp;&ensp;&ensp;# simulation study to evaluate the computational cost <br/>
 &ensp;&ensp;&ensp;├── 01_simulate_data.R <br/>
 &ensp;&ensp;&ensp;├── 02_run_gibbs.R <br/>
 &ensp;&ensp;&ensp;└── 03_extract_results.R <br/>
