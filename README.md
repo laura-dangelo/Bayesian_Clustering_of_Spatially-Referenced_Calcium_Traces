@@ -8,16 +8,16 @@ The structure of the repository is designed to facilitate the streamlined execut
 
 Key structure:
 <ul>
-  <li> **Code** 
+  <li> Code 
     <ul>
-      <li> **01_data_preprocessing** : preparation of the data from the original .mat file. </li>
-      <li> **02_data_analysis** : contains all the scripts to replicate the analyses on the real data.</li>
-      <li> **03_simulation_study** : contains the scripts to replicate the simulation studies reported in the Supplementary Material.</li>
-      <li> **bSCDCsampler** : R package implementing the Gibbs sampler.</li>
+      <li> 01_data_preprocessing : preparation of the data from the original .mat file. </li>
+      <li> 02_data_analysis : contains all the scripts to replicate the analyses on the real data.</li>
+      <li> 03_simulation_study : contains the scripts to replicate the simulation studies reported in the Supplementary Material.</li>
+      <li> bSCDCsampler : R package implementing the Gibbs sampler.</li>
     </ul>
   </li>
-  <li> **Data** </li>
-  <li> **Manuscript** </li>
+  <li> Data </li>
+  <li> Manuscript </li>
 </ul>
 
 
@@ -67,12 +67,12 @@ The key elements of this folder are the following:
 │   ├── 01_simulate_data.R <br/>
 │   ├── 02_run_gibbs.R <br/>
 │   ├── 03_extract_results.R <br/>
-│   ├── 04_plot_results.R <br/>
+│   └── 04_plot_results.R <br/>
 ├── 02_comparison_two-step_synthetic_data    # comparison with the two-step deconvolution and clustering on synthetic data <br/>
 │   ├── 01_spike_detection_JW.R <br/>
 │   ├── 02_run_kmeans_compute_ARI.R <br/>
 │   ├── 03_extract_results.R <br/>
-│   ├── 04_plot_results.R <br/>
+│   └── 04_plot_results.R <br/>
 └── 03_computational_cost    # simulation study to evaluate the impact of n and T on the computational cost <br/>
     ├── 01_simulate_data.R <br/>
     ├── 02_run_gibbs.R <br/>
