@@ -1,5 +1,27 @@
+#-------# #-------# #-------# #-------# #-------# #-------# #-------# #-------# 
+#
+#        Import M3424F_data_togo_neuron_behav_multiTrials_072621.mat 
+#        and extract individual quantities 
+#
+#-------# #-------# #-------# #-------# #-------# #-------# #-------# #-------# 
+
 # This script imports the original .mat data, extracts the individual quantities of interest and
 # saves them as separate RDS files.
+# In particular, it saves to the Data folder the following files:
+#   - M3424F_loc_neurons.RDS
+#   - M3424F_time_calcium.RDS
+#   - M3424F_time_mouse_position.RDS
+#   - M3424F_calcium.RDS                                     
+#   - M3424F_coord_mouse_position.RDS
+
+#  _________________________________
+#  YOU CAN AVOID RUNNING THIS SCRIPT 
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+# In the Google Drive folder (https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing)
+# the RDS files produced by this script are available in the "Data" folder.
+# You can download these files and copy them in the Data folder of this repository.
+
+
 
 library(rmatio)
 data = read.mat(filename = "../../Data/M3424F_data_togo_neuron_behav_multiTrials_072621.mat")

@@ -5,6 +5,13 @@
 # This script produces the posterior similarity matrix of the neurons' functional cluster allocation,
 # similar to Figure 6 in the main paper.
 
+# To speed up execution, the script uploads some pre-computed quantities:
+#    - uncertClust.RDS
+#
+# If you prefer running it "from scratch", set the logical variable load_precomputed to FALSE (default = TRUE).
+
+load_precomputed = TRUE
+
 library(ggplot2)
 library(ggforce)
 library(salso)
@@ -19,7 +26,7 @@ find_mode <- function(x) {
 # import data
 idx <- readRDS("../Data/Time_windows/indices.RDS")
 
-if(!file.exists("02_data_analysis/02_bSCDC_neuronal_response_to_position/output_RDS/uncertClust.RDS")){
+if((!load_precomputed)&(!file.exists("02_data_analysis/02_bSCDC_neuronal_response_to_position/output_RDS/uncertClust.RDS"))){
   PSMs = c()
   Loss = c()
   Chai = c()

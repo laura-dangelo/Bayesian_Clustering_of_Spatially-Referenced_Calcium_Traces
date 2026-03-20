@@ -1,8 +1,26 @@
+#-------# #-------# #-------# #-------# #-------# 
+#
+#        Create dataset for analyses 
+#
+#-------# #-------# #-------# #-------# #-------# 
 
 # This script standardizes the coordinates of the mouse position and creates the two areas (inner circle and outer ring).
 # It imports the individual quantities and organize them into a single, coherent, dataframe.
+# In particular, it saves to the Data folder the following file:
+#   - data_binary_position.RDS
+
 # It then creates the individual "trials" defined by the mouse position.
-# These trials are saved into the folder "Data/Time_windows".
+# These trials are saved into the folder Data/Time_windows. The files are:
+#   - calcium_window#.RDS
+#   - time_calcium_window#.RDS
+
+#  _________________________________
+#  YOU CAN AVOID RUNNING THIS SCRIPT 
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+# In the Google Drive folder (https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing)
+# the RDS files produced by this script are available in the "Data" folder.
+# You can download these files and copy them in the Data folder of this repository.
+
 
 
 position = readRDS(file="../Data/M3424F_coord_mouse_position.RDS")

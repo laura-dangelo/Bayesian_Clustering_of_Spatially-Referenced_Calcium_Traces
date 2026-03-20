@@ -3,6 +3,28 @@
 #---------#     COMPUTE AND PLOT WINDOW-SPECIFIC QUANTITIES     #---------#
 #---------# #-----------# #---------# #---------# #-----------# #---------# 
 
+# This script produces the plots contained in the output_images folder:
+# - heatmap of the spike amplitudes (Figure 3 in the main paper)
+# - calcium traces sorted and colored by cluster (Figure 4 in the main paper)
+# - trajectories of the spike probabilities, i.e., the transformed Gaussian processes (Figure 5 in the main paper)
+
+# Also in this case, if you wish to reproduce the analyses only for the subset of windows 
+# reported in the paper, you may keep run_on_subset = TRUE (default).
+# On the contrary, if you wish to run the code on all the time windows, set run_on_subset = FALSE.
+# The script then executes a for loop over the selected time windows, and automatically
+# saves the output plots into the folder as pdf and png images.
+
+
+# To speed up execution, the script uploads some pre-computed quantities:
+#    - df_GP_win#.RDS
+#    - est_cluster_neurons_win#.RDS
+#    - estimated_spikes_win#.RDS
+#
+# If you prefer running it "from scratch", set the logical variable load_precomputed to FALSE (default = TRUE).
+
+load_precomputed = TRUE
+run_on_subset = TRUE
+
 
 library(ggplot2)
 library(salso)
@@ -40,20 +62,6 @@ FDRk = function(k, PPS){
 
 #--------------------# #--------------------# #--------------------# #--------------------# 
 
-# The script produces the plots contained in the output_images folder:
-# - heatmap of the spike amplitudes (Figure 3 in the main paper)
-# - calcium traces sorted and colored by cluster (Figure 4 in the main paper)
-# - trajectories of the spike probabilities, i.e., the transformed Gaussian processes (Figure 5 in the main paper)
-
-# Specifically, the script executes a for loop over the selected time windows, and automatically
-# saves the output plots into the folder as pdf and png images.
-
-# Also in this case, if you are interested only in the subset of windows to reproduce the analyses
-# reported in the paper, you may set run_on_subset = TRUE.
-# On the contrary, if you wish to run the code on all the time windows, set run_on_subset = FALSE
-
-run_on_subset = TRUE
-
 if(run_on_subset) {
   idx_to_run = c(4,17,36,77)
 } else {
@@ -89,25 +97,35 @@ for(n_window in idx_to_run)
   
   cat("POSITIVE SPIKES\n")
   
-  # PPS is a matrix where each cell is the spike probability
-  PPS = matrix(0, TT, N)
-  for(i in 1:N) {
-    PPS[,i] = apply(out$AA[,i,1:length(out$gamma)], 1, function(x) mean(x>0))
+  if(load_precomputed) {
+    
+    filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_RDS/estimated_spikes_win", n_window, ".RDS")
+    estimated_spikes = readRDS(file=filename)
+    
+  } else {
+    
+    # PPS is a matrix where each cell is the spike probability
+    PPS = matrix(0, TT, N)
+    for(i in 1:N) {
+      PPS[,i] = apply(out$AA[,i,1:length(out$gamma)], 1, function(x) mean(x>0))
+    }
+    
+    # we need to select a threshold so that we identify a spike if P(spike)>threshold
+    # we fix the false discovery rate to be below 0.05
+    FDRk = Vectorize(FDRk, "k")
+    fdr_threshold = 0.05
+    threshold = 0.9
+    threshold = uniroot(function(k) FDRk(k, PPS)-fdr_threshold, c(0.001, 0.9))$root
+    
+    estimated_spikes = (PPS>threshold)
+    
+    filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_RDS/estimated_spikes_win", n_window, ".RDS")
+    saveRDS(estimated_spikes, file=filename)
+    
+    rm(PPS)
+    
   }
-  
-  # we need to select a threshold so that we identify a spike if P(spike)>threshold
-  # we fix the false discovery rate to be below 0.05
-  FDRk = Vectorize(FDRk, "k")
-  fdr_threshold = 0.05
-  threshold = 0.9
-  threshold = uniroot(function(k) FDRk(k, PPS)-fdr_threshold, c(0.001, 0.9))$root
-  
-  estimated_spikes = (PPS>threshold)
 
-  filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_RDS/estimated_spikes_win", n_window, ".RDS")
-  saveRDS(estimated_spikes, file=filename)
-  
-  rm(PPS)
   
   
   
@@ -118,12 +136,22 @@ for(n_window in idx_to_run)
   
   cat("cluster of neurons\n")
   
-  est_cluster_neurons = salso(t(out$cluster_signal+1), maxNClusters = 100)
-  est_cluster_neurons = sort_labels_by_size(est_cluster_neurons)
-  # table(est_cluster_neurons)
+  if(load_precomputed) {
+    
+    filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_RDS/est_cluster_neurons_win", n_window, ".RDS")
+    est_cluster_neurons = readRDS(file=filename)
+    
+  } else {
+    
+    est_cluster_neurons = salso(t(out$cluster_signal+1), maxNClusters = 100)
+    est_cluster_neurons = sort_labels_by_size(est_cluster_neurons)
+    # table(est_cluster_neurons)
+    
+    filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_RDS/est_cluster_neurons_win", n_window, ".RDS")
+    saveRDS(est_cluster_neurons, file=filename)
+    
+  }
   
-  filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_RDS/est_cluster_neurons_win", n_window, ".RDS")
-  saveRDS(est_cluster_neurons, file=filename)
   
   
   
@@ -193,39 +221,50 @@ for(n_window in idx_to_run)
   
   cat("estimates latent Gaussian processes\n")
   
-  # select the mcmc iterations with a cluster similar to the estimate
-  selected_rows = c()
-  j=1
-  ARIS = rev(seq(0.3,1, by=0.1))
-  while((length(selected_rows)<500)&j<length(ARIS)){
-    id = sapply(1:length(out$gamma), function(x) adjustedRandIndex(est_cluster_neurons, (out$cluster_signal)[,x] ) > ARIS[j] )
-    selected_rows = which(id==T)
-    j=j+1
-  }
-  
-  
-  mcmc_GP = out$latent_signal[,,selected_rows]
-  ind_patch <- min(min(7,first_singleton-1),max(est_cluster_neurons))
-  clus = 2:ind_patch
-  df_GP = data.frame("clus"=sort(rep(clus,TT)), "time"=rep(1:TT,length(clus)), 
-                     "y"=0, "lower" = 0, "upper" = 0)
-  
-  for(i in 1:length(clus)){
-    obs_cl = which(est_cluster_neurons==clus[i])[1]
-    seq_cl = out$cluster_signal[obs_cl,selected_rows]+1
+  if(load_precomputed) {
     
-    est_GP = matrix(0, length(selected_rows), TT)
-    for(iter in 1:length(selected_rows)) est_GP[iter,] = 
-        pnorm( out$latent_signal[, seq_cl[iter], selected_rows[iter]] )
-    hpdGP = apply(est_GP, 2, function(x) emp.hpd(x))
+    filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_RDS/df_GP_win", n_window, ".RDS")
+    df_GP = readRDS(file=filename)
     
-    df_GP[(df_GP$clus == clus[i]),]$y = colMeans(est_GP)
-    df_GP[df_GP$clus == clus[i],]$lower = hpdGP[1,]
-    df_GP[df_GP$clus == clus[i],]$upper = hpdGP[2,]
+  } else {
+    
+    # select the mcmc iterations with a cluster similar to the estimate
+    selected_rows = c()
+    j=1
+    ARIS = rev(seq(0.3,1, by=0.1))
+    while((length(selected_rows)<500)&j<length(ARIS)){
+      id = sapply(1:length(out$gamma), function(x) adjustedRandIndex(est_cluster_neurons, (out$cluster_signal)[,x] ) > ARIS[j] )
+      selected_rows = which(id==T)
+      j=j+1
+    }
+    
+    mcmc_GP = out$latent_signal[,,selected_rows]
+    ind_patch <- min(min(7,first_singleton-1),max(est_cluster_neurons))
+    clus = 2:ind_patch
+    df_GP = data.frame("clus"=sort(rep(clus,TT)), "time"=rep(1:TT,length(clus)), 
+                       "y"=0, "lower" = 0, "upper" = 0)
+    
+    for(i in 1:length(clus)){
+      obs_cl = which(est_cluster_neurons==clus[i])[1]
+      seq_cl = out$cluster_signal[obs_cl,selected_rows]+1
+      
+      est_GP = matrix(0, length(selected_rows), TT)
+      for(iter in 1:length(selected_rows)) est_GP[iter,] = 
+          pnorm( out$latent_signal[, seq_cl[iter], selected_rows[iter]] )
+      hpdGP = apply(est_GP, 2, function(x) emp.hpd(x))
+      
+      df_GP[(df_GP$clus == clus[i]),]$y = colMeans(est_GP)
+      df_GP[df_GP$clus == clus[i],]$lower = hpdGP[1,]
+      df_GP[df_GP$clus == clus[i],]$upper = hpdGP[2,]
+    }
+    
+    df_GP$label_clus = paste0("Cluster ", df_GP$clus)
+    df_GP$time = df_GP$time/15
+    
+    filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_RDS/df_GP_win", n_window, ".RDS")
+    saveRDS(df_GP, file=filename)
+    
   }
-  
-  df_GP$label_clus = paste0("Cluster ", df_GP$clus)
-  df_GP$time = df_GP$time/15
   
   plot_GPs = ggplot(data = df_GP, aes(x = time, y = y, color=clus)) + 
     geom_ribbon(aes(ymin = lower, ymax = upper),

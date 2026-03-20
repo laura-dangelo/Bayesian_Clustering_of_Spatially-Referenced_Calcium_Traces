@@ -3,15 +3,22 @@
 #---------#                  RUN GIBBS SAMPLER                  #---------#
 #---------# #-----------# #---------# #---------# #-----------# #---------# 
 
-# This script runs the Gibbs sampler algorithm on all the time windows. This can be time consuming. 
-# To allow you to try it on a smaller subset of data, the flag variable run_on_subset is now set to TRUE. 
-# Under this configuration, the sampler is ran only on the time windows reported in the article (main and supplementary).
-# If you want to further speed up computation, you can consider reducing the number of MCMC iteration, which is now
-# set to quite a large value to ensure good convergence.
+# This script runs the Gibbs sampler algorithm on all the time windows. 
+
+#  _________________________________
+#  YOU CAN AVOID RUNNING THIS SCRIPT 
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+# In the Google Drive folder (https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing)
+# the RDS files produced by this script are available in the "Code/02_data_analysis/01_bSCDC_individual_trials/results" folder.
+# You can download these files and copy them in the corresponding folder of this repository.
+
+# Running this script can be time consuming. If you wish to run it anyway, to allow you to try it on a smaller subset of data, 
+# the flag variable run_on_subset is now set to TRUE. Under this configuration, the sampler is ran only on the windows 
+# reported in the article (main and supplementary).
 
 # If you wish instead to proceed with the full computation, set run_on_subset = FALSE.
 # Notice that to produce the plots for the overall activity you will need the output RDS files for all the windows.
-# The pre-computed RDS are available as Supplementary Material. 
+# The pre-computed RDS are available as Supplementary Material, as described above. 
 
 install.packages("bSCDCsampler_0.0.1.tar.gz")
 library(bSCDCsampler)
