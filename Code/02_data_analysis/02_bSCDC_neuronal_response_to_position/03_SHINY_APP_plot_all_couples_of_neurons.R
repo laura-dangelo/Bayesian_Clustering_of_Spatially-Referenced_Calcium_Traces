@@ -22,8 +22,8 @@ addResourcePath(prefix = "neuron_maps_pdf", directoryPath = "output_images/all_m
 
 source("00_auxiliary_functions_DONT_RUN.R")
 data <- readRDS("../../../Data/data_binary_position.RDS")
-WIND <- readRDS("output_RDS/Windows_list.RDS")
-idx <- readRDS("../../../Data/Time_windows/indices.RDS")
+WIND <- readRDS("../../02_data_analysis/02_bSCDC_neuronal_response_to_position/output_RDS/Windows_list.RDS")
+idx <- readRDS("../../02_data_analysis/02_bSCDC_neuronal_response_to_position/output_RDS/indices.RDS")
 loc_neurons <- readRDS("../../../Data/M3424F_loc_neurons.RDS")
 total_neurons_available <- nrow(loc_neurons)
 
