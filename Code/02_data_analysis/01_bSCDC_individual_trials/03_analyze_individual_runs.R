@@ -9,13 +9,12 @@
 # - trajectories of the spike probabilities, i.e., the transformed Gaussian processes (Figure 5 in the main paper)
 
 # Also in this case, if you wish to reproduce the analyses only for the subset of windows 
-# reported in the paper, you may keep run_on_subset = TRUE (default).
+# reported in the paper, you may keep the variable run_on_subset = TRUE (default).
 # On the contrary, if you wish to run the code on all the time windows, set run_on_subset = FALSE.
 # The script then executes a for loop over the selected time windows, and automatically
 # saves the output plots into the folder as pdf and png images.
 
-
-# To speed up execution, the script uploads some pre-computed quantities:
+# To speed up execution, the script loads some pre-computed quantities:
 #    - df_GP_win#.RDS
 #    - est_cluster_neurons_win#.RDS
 #    - estimated_spikes_win#.RDS

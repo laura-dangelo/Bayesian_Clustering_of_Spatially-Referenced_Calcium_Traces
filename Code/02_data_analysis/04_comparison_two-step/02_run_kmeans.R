@@ -1,3 +1,7 @@
+#---------# #-----------# #---------# #---------# #-----------# #---------# #---------# 
+#---------#              STEP 2: CLUSTER THE DECONVOLVED SERIES             #---------#
+#---------# #-----------# #---------# #---------# #-----------# #---------# #---------# 
+#
 # This script clusters the deconvolved series using the consensus kmeans algorithm contained in the package "coca"
 
 # devtools::install_github("sarawade/mcclust.ext")

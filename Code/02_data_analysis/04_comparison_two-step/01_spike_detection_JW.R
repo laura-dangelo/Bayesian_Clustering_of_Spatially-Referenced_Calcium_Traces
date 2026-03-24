@@ -1,6 +1,19 @@
+
+#---------# #-----------# #---------# #---------# #-----------# #---------# #---------# 
+#---------#              STEP 1: DECONVOLUTION OF CALCIUM TRACES            #---------#
+#---------# #-----------# #---------# #---------# #-----------# #---------# #---------# 
+#
 # This script performs deconvolution of the fluorescent calcium traces using the L0 optimization 
 # algorithm of Jewell and Witten (2020), contained in the R package FastLZeroSpikeInference.
 #
+#  _________________________________
+#  YOU CAN AVOID RUNNING THIS SCRIPT 
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+# In the Google Drive folder (https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing)
+# the RDS files produced by this script are available in the "Code/02_data_analysis/04_comparison_two-step/results" folder.
+# You can download these files and copy them in the corresponding folder of this repository.
+
+
 
 # devtools::install_github("jewellsean/FastLZeroSpikeInference")
 library(FastLZeroSpikeInference)

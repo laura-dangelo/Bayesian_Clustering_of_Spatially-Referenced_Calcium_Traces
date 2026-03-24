@@ -3,6 +3,10 @@
 #---------#     Toy example from probit-SB      #---------# 
 #---------# #---------# #---------# #---------# #---------# 
 
+# The output of this script is not reported in the paper.
+# We sample random distributions drawn from the probit-stick-breaking processes to study their behavior
+# and visualize the influence of the parameter theta.
+
 library(tidyverse)
 library(mvtnorm)
 library(viridisLite)

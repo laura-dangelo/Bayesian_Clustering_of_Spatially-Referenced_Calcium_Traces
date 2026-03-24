@@ -7,6 +7,13 @@
 # This script runs the Gibbs sampler algorithm on window 17 for varying values of the parameter theta of 
 # the probit-stick-breaking process.
 
+#  _________________________________
+#  YOU CAN AVOID RUNNING THIS SCRIPT 
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+# In the Google Drive folder (https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing)
+# the RDS files produced by this script are available in the "Code/02_data_analysis/03_bSCDC_sensitivity_study/results" folder.
+# You can download these files and copy them in the corresponding folder of this repository.
+
 library(bSCDCsampler)
 idx = readRDS("../Data/Time_windows/indices.RDS")
 loc_neurons = readRDS("../Data/M3424F_loc_neurons.RDS")

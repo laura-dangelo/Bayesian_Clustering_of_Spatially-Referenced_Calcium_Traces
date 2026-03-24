@@ -3,7 +3,7 @@
 #---------#   COMPUTE AND PLOT INDICES OF CLUSTER COMPLEXITY    #---------#
 #---------# #-----------# #---------# #---------# #-----------# #---------# 
 # This script produces the plots of the cluster complexity in relation to the mouse's position in the arena,
-# similar to Figure 8 of the main paper.
+# (Figure 8 of the main paper).
 # Specifically, it shows how the variance and the mode of the number of clusters changes depending on the spatial location.
 
 

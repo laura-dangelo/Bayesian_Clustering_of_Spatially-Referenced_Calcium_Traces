@@ -1,4 +1,9 @@
 
+#---------#    AUXILIARY FUNCTIONS     #---------#
+#---------#   don't run this script    #---------#
+
+
+
 # auxiliary function that finds the mode of a discrete vector
 find_mode <- function(x) {
   freq_table <- table(x)
