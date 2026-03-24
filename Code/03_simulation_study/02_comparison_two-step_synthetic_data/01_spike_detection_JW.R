@@ -5,6 +5,14 @@
 # These scripts replicate the comparison with the two-step approach reported in Section S4.3 of the Supplementary Material.
 # Specifically, this script uses the L0 optimization method of Jewell and Witten (2020) to deconvolve the traces.
 
+#  _________________________________
+#  YOU CAN AVOID RUNNING THIS SCRIPT 
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+# In the Google Drive folder (https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing)
+# the RDS files produced by this script are available in the "Code/03_simulation_study/02_comparison_two-step_synthetic_data/results" folder.
+# You can download these files and copy them in the corresponding folder of this repository.
+
+
 replications_sim = 50
 
 library(FastLZeroSpikeInference)

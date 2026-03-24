@@ -1,3 +1,8 @@
+
+#---------#    AUXILIARY FUNCTIONS     #---------#
+#---------#   don't run this script    #---------#
+
+
 # squared exponential kernel covariance function with unit variance
 rbf_kernel = function(theta, x1, x2)
 {

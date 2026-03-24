@@ -4,7 +4,8 @@
 #-------------------# #-------------------# #-------------------#
 
 # These scripts replicate the sensitivity study reported in Section S4.2 of the Supplementary Material.
-# Specifically, this script takes as input the output of the Gibbs sampler and compute the classification error rates and ARI.
+# Specifically, this script takes as input the runs of the Gibbs sampler and compute the classification error rates and ARI.
+# The outputs are saved in the output_RDS folder.
 
 library(salso)
 library(mclust)
