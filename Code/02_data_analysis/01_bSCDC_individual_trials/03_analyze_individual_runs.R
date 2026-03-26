@@ -8,18 +8,21 @@
 # - calcium traces sorted and colored by cluster (Figure 4 in the main paper)
 # - trajectories of the spike probabilities, i.e., the transformed Gaussian processes (Figure 5 in the main paper)
 
+# To avoid downloading all the runs of the Gibbs sampler, you can set load_precomputed = TRUE.
+# In this case, the script loads some pre-computed quantities:
+#    - df_GP_win#.RDS
+#    - est_cluster_neurons_win#.RDS
+#    - estimated_spikes_win#.RDS
+#    - meltM_win#.RDS
+#
+# If you prefer running it "from scratch", set the logical variable load_precomputed to FALSE.
+
 # Also in this case, if you wish to reproduce the analyses only for the subset of windows 
-# reported in the paper, you may keep the variable run_on_subset = TRUE (default).
+# reported in the paper, you may set load_precomputed = FALSE and run_on_subset = TRUE.
 # On the contrary, if you wish to run the code on all the time windows, set run_on_subset = FALSE.
 # The script then executes a for loop over the selected time windows, and automatically
 # saves the output plots into the folder as pdf and png images.
 
-# To speed up execution, the script loads some pre-computed quantities:
-#    - df_GP_win#.RDS
-#    - est_cluster_neurons_win#.RDS
-#    - estimated_spikes_win#.RDS
-#
-# If you prefer running it "from scratch", set the logical variable load_precomputed to FALSE (default = TRUE).
 
 load_precomputed = TRUE
 run_on_subset = TRUE
@@ -75,10 +78,12 @@ for(n_window in idx_to_run)
   indind <- indind+1
   cat(paste("Run", indind, "of", length(idx_to_run),"\n"))
     
-  #----------# import run  
-  cat("import run\n")
-  filename = paste0("02_data_analysis/01_bSCDC_individual_trials/results/run_gibbs_window", n_window, "_alow_1.RDS")
-  out = readRDS(filename)
+  #----------# import run if required
+  if(!load_precomputed){
+    cat("import run\n")
+    filename = paste0("02_data_analysis/01_bSCDC_individual_trials/results/run_gibbs_window", n_window, "_alow_1.RDS")
+    out = readRDS(filename)
+  }
   
   #----------# import data
   cat("import data\n")
@@ -166,16 +171,28 @@ for(n_window in idx_to_run)
     first_singleton <- 999
   }
   
-  mAA <- t(apply(out$AA,c(1,2),mean))
-  mAA = mAA[(est_cluster_neurons>1)&(est_cluster_neurons<first_singleton), ]
-  order_series = sort(est_cluster_neurons[(est_cluster_neurons>1)&(est_cluster_neurons<first_singleton)], index.return=T)
-  annotations = c(0,which(diff(order_series$x)>0)) + c(diff( c(0,which(diff(order_series$x)>0)) )/2, 1) + 0.5
-  
-  mAA = mAA[order_series$ix,]
-  mAA = mAA[,2:TT]
-  meltM =reshape2::melt(t(mAA))
-  meltM$time = meltM$Var1/15
-  
+  if(load_precomputed){
+    
+    filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_RDS/meltM_win", n_window, ".RDS")
+    meltM = readRDS(file=filename)
+    order_series = sort(est_cluster_neurons[(est_cluster_neurons>1)&(est_cluster_neurons<first_singleton)], index.return=T)
+    
+  } else {
+    
+    mAA <- t(apply(out$AA,c(1,2),mean))
+    mAA = mAA[(est_cluster_neurons>1)&(est_cluster_neurons<first_singleton), ]
+    order_series = sort(est_cluster_neurons[(est_cluster_neurons>1)&(est_cluster_neurons<first_singleton)], index.return=T)
+    annotations = c(0,which(diff(order_series$x)>0)) + c(diff( c(0,which(diff(order_series$x)>0)) )/2, 1) + 0.5
+    
+    mAA = mAA[order_series$ix,]
+    mAA = mAA[,2:TT]
+    meltM =reshape2::melt(t(mAA))
+    meltM$time = meltM$Var1/15
+    
+    filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_RDS/meltM_win", n_window, ".RDS")
+    saveRDS(meltM, file=filename)
+  }
+
   heatmap_spike = ggplot() + 
     geom_tile(aes( x = time, y = Var2, fill = value),
               data = meltM) +
@@ -262,7 +279,7 @@ for(n_window in idx_to_run)
     
     filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_RDS/df_GP_win", n_window, ".RDS")
     saveRDS(df_GP, file=filename)
-    
+    rm(id,i,j,selected_rows, seq_cl, est_GP, mcmc_GP,hpdGP)
   }
   
   plot_GPs = ggplot(data = df_GP, aes(x = time, y = y, color=clus)) + 
@@ -298,7 +315,7 @@ for(n_window in idx_to_run)
   ggsave(filename, plot_GPs, width = 8, height = 4.5)
   
   
-  rm(df_GP, est_GP)
+  rm(df_GP)
   rm(plot_GPs)
   
   
@@ -507,17 +524,14 @@ for(n_window in idx_to_run)
   filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_images/clustered_series_locations_win", n_window, ".png")
   ggsave(filename, g, width = 8, height = 9)
   
-  
+  if(!load_precomputed){rm(out)}
   rm(calcium, calcium_active)
   rm(data_sub, dataf)
-  rm(mcmc_GP)
   rm(estimated_spikes, est_cluster_neurons)
   rm(meltM)
   rm(p1,p2,p3,p4)
   rm(cond1,cond2,cond3)
   rm(subset_active)
-  rm(out)
-  rm(g, heatmap_spike, hpdGP, mAA, order_series)
-  rm(id,i,j,selected_rows, seq_cl)
+  rm(g, heatmap_spike, order_series)
   gc()
 }
