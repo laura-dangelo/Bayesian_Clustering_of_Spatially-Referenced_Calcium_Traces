@@ -176,6 +176,7 @@ for(n_window in idx_to_run)
     filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_RDS/meltM_win", n_window, ".RDS")
     meltM = readRDS(file=filename)
     order_series = sort(est_cluster_neurons[(est_cluster_neurons>1)&(est_cluster_neurons<first_singleton)], index.return=T)
+    annotations = c(0,which(diff(order_series$x)>0)) + c(diff( c(0,which(diff(order_series$x)>0)) )/2, 1) + 0.5
     
   } else {
     
