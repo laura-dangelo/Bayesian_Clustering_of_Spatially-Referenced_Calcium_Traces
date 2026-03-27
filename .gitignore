@@ -4,7 +4,6 @@
 .DS_Store
 
 Data/M3424F*
-Data/data_binary_position.RDS
 Data/GPFA*
 
 results/*.RDS
