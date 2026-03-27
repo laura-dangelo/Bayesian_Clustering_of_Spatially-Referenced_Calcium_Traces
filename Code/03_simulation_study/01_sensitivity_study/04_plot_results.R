@@ -1,6 +1,6 @@
 
 #-------------------# #-------------------# #-------------------#
-##                EXTRACT QUANTITIES OF INTEREST               ##
+##                  PLOT QUANTITIES OF INTEREST                ##
 #-------------------# #-------------------# #-------------------#
 
 # These scripts replicate the sensitivity study reported in Section S4.2 of the Supplementary Material.

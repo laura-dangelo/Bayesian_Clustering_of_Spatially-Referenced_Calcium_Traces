@@ -6,6 +6,12 @@
 # These scripts replicate the sensitivity study reported in Section S4.2 of the Supplementary Material.
 # Specifically, this script generates the synthetic data using the data generating mechanism outlined in Section S4.1.
 
+#  _________________________________
+#  YOU CAN AVOID RUNNING THIS SCRIPT 
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+# the RDS files produced by this script are available in the "Code/03_simulation_study/01_sensitivity_study/simulated_data" folder.
+
+
 library(mvtnorm)
 source("03_simulation_study/01_sensitivity_study/00_auxiliary_functions_DONT_RUN.R")
 

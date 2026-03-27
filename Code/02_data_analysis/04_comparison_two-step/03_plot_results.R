@@ -41,13 +41,13 @@ for(n_window in indices_win)
   cat(paste("Run", indind, "of", length(indices_win),"\n"))
   
   #----------# import run  
-  name = paste0("02_data_analysis/04_comparison_two-step/results/estimated_spikes_JW_window", n_window, ".RDS")
+  name = paste0("02_data_analysis/04_comparison_two-step/output_RDS/estimated_spikes_JW_window", n_window, ".RDS")
   estimated_spikes = readRDS(file = name)
   
-  name = paste0("02_data_analysis/04_comparison_two-step/results/estimated_calcium_JW_window", n_window, ".RDS")
+  name = paste0("02_data_analysis/04_comparison_two-step/output_RDS/estimated_calcium_JW_window", n_window, ".RDS")
   estimated_calcium = readRDS(file = name)
   
-  name = paste0("02_data_analysis/04_comparison_two-step/results/estimates_clusterkmeans_window", n_window, ".RDS")
+  name = paste0("02_data_analysis/04_comparison_two-step/output_RDS/estimates_clusterkmeans_window", n_window, ".RDS")
   estimated_cluster_kmeans = readRDS(file = name)
   
   #----------# import data
@@ -77,13 +77,7 @@ for(n_window in indices_win)
   }
   estimated_amplitudes[estimated_amplitudes<0]=0
   
-  par(mfrow=c(3,2))
-  for(j in 1:6){
-  plot(calcium[,j], type="l", ylim=c(-2,max(calcium[,j])+2))
-  points(which(estimated_amplitudes[j,]>0), estimated_amplitudes[j,][which(estimated_amplitudes[j,]>0)] )
-  lines(estimated_calcium[j,],col=2)
-  }
-  
+
   tapply(rowMeans(estimated_spikes), estimated_cluster_kmeans, mean)
   
   #---------# #-----------# #---------# #---------# #-----------# #---------# 
@@ -136,7 +130,6 @@ for(n_window in indices_win)
     ylab("Neurons") +
     annotate("text", x = -0.2, y = annotations, label = as.character(2:(length(annotations)+1))) + scale_y_reverse() 
   
-  heatmap_spike
   
   filename = paste0("02_data_analysis/04_comparison_two-step/output_images/two-step_heatmap_spikes_win", n_window, ".pdf")
   ggsave(filename, heatmap_spike, width = 8, height = 6)
@@ -344,8 +337,7 @@ for(n_window in indices_win)
                  ggarrange(p3,p4, nrow=2, ncol=1, legend = F, heights = c(1.9,1)), 
                  ncol=3, nrow=1,
                  common.legend = TRUE, legend="bottom")
-  g
-  
+
   
   filename = paste0("02_data_analysis/04_comparison_two-step/output_images/two-step_clustered_series_locations_win", n_window, ".pdf")
   ggsave(filename, g, width = 8, height = 9)

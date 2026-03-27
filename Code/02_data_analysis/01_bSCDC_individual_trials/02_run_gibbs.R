@@ -10,7 +10,7 @@
 #  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 # In the Google Drive folder (https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing)
 # the RDS files produced by this script are available in the "Code/02_data_analysis/01_bSCDC_individual_trials/results" folder.
-# You can download these files and copy them in the corresponding folder of this repository.
+# Notice that these files are not necessary for reproducing the results in the paper.
 
 # Running this script can be time consuming. If you wish to run it anyway, to allow you to try it on a smaller subset of data, 
 # the flag variable run_on_subset is now set to TRUE. Under this configuration, the sampler is ran only on the windows 

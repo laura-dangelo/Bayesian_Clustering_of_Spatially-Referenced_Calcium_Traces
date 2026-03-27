@@ -3,6 +3,10 @@
 #---------# #-----------# #---------# #---------# #-----------# #---------# #---------# 
 #
 # This script clusters the deconvolved series using the consensus kmeans algorithm contained in the package "coca"
+#  _________________________________
+#  YOU CAN AVOID RUNNING THIS SCRIPT 
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+# the RDS files produced by this script are available in the "Code/02_data_analysis/04_comparison_two-step/output_RDS" folder.
 
 # devtools::install_github("sarawade/mcclust.ext")
 library(coca)
@@ -26,7 +30,7 @@ for(n_window in idx) {
   TT = nrow(calcium)
   N = ncol(calcium)
   
-  name = paste0("02_data_analysis/04_comparison_two-step/results/estimated_calcium_JW_window", n_window, ".RDS")
+  name = paste0("02_data_analysis/04_comparison_two-step/output_RDS/estimated_calcium_JW_window", n_window, ".RDS")
   estimated_calcium = readRDS(name)
 
   n_clus = 2:15
@@ -49,7 +53,7 @@ for(n_window in idx) {
   K = which.max(chooseK$silhouette[4:length(chooseK$silhouette)])+1
   
   estimated_cluster_kmeans = estimated_clusters[K,]
-  name = paste0("02_data_analysis/04_comparison_two-step/results/estimates_clusterkmeans_window", n_window, ".RDS")
+  name = paste0("02_data_analysis/04_comparison_two-step/output_RDS/estimates_clusterkmeans_window", n_window, ".RDS")
   saveRDS(estimated_cluster_kmeans, file = name)
   
 

@@ -9,9 +9,7 @@
 #  _________________________________
 #  YOU CAN AVOID RUNNING THIS SCRIPT 
 #  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-# In the Google Drive folder (https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing)
-# the RDS files produced by this script are available in the "Code/02_data_analysis/04_comparison_two-step/results" folder.
-# You can download these files and copy them in the corresponding folder of this repository.
+# the RDS files produced by this script are available in the "Code/02_data_analysis/04_comparison_two-step/output_RDS" folder.
 
 
 
@@ -81,13 +79,13 @@ for(n_window in idx_to_run) {
   }
   
 
-  name = paste0("02_data_analysis/04_comparison_two-step/results/estimated_spikes_JW_window", n_window, ".RDS")
+  name = paste0("02_data_analysis/04_comparison_two-step/output_RDS/estimated_spikes_JW_window", n_window, ".RDS")
   saveRDS(estimated_spikes, file = name)
   
-  name = paste0("02_data_analysis/04_comparison_two-step/results/estimated_calcium_JW_window", n_window, ".RDS")
+  name = paste0("02_data_analysis/04_comparison_two-step/output_RDS/estimated_calcium_JW_window", n_window, ".RDS")
   saveRDS(estimated_calcium, file = name)
   
-  name = paste0("02_data_analysis/04_comparison_two-step/results/estimated_amplitudes_JW_window", n_window, ".RDS")
+  name = paste0("02_data_analysis/04_comparison_two-step/output_RDS/estimated_amplitudes_JW_window", n_window, ".RDS")
   saveRDS(estimated_amplitudes, file = name)
   
   rm(estimated_spikes)

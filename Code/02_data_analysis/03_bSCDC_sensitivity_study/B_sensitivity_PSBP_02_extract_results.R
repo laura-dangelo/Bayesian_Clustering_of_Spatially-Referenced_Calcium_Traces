@@ -32,56 +32,67 @@ for(sigma2_alpha in sigma2_alpha_seq) {
   filenameout = paste0("02_data_analysis/03_bSCDC_sensitivity_study/results/run_gibbs_window", n_window,"_theta_", 1/sigma2_alpha,".RDS")
   out = readRDS(file = filenameout)
   
+  
+  # posterior estimates of the parameters
+  estimates = list()
+  estimates$sigma2 = mean(out$sigma2)
+  estimates$tau2 = mean(out$tau2)
+  estimates$gamma = mean(out$gamma)
+  
+  filename = paste0("02_data_analysis/03_bSCDC_sensitivity_study/output_RDS/estimates_win", n_window,"_theta_", 1/sigma2_alpha,".RDS")
+  saveRDS(estimates, file=filename)
+  
+  
   #----------#  import data
   filename = paste0("../Data/Time_windows/calcium_window", n_window, ".RDS")
   calcium = readRDS(filename)
-  
+
   TT = nrow(calcium)
   N = ncol(calcium)
-  
-  
+
+
   #----------# #----------# #----------# #----------#
   #----------# ESTIMATE DETECTED SPIKES  #----------#
   #----------# #----------# #----------# #----------#
-  
+
   # PPS is a matrix where each cell is the spike probability
   PPS = matrix(0, TT, N)
   for(i in 1:N) {
     PPS[,i] = apply(out$AA[,i,1:length(out$gamma)], 1, function(x) mean(x>0))
   }
-  
+
   # we need to select a threshold so that we identify a spike if P(spike)>threshold
   # we fix the false discovery rate to be below 0.05
-  
+
   FDRk = function(k, PPS){
     logi_tmp = PPS>k
     num = sum((1-PPS) * logi_tmp)
     denom = sum(logi_tmp)
     return(num/denom)
   }
-  
+
   FDRk = Vectorize(FDRk, "k")
-  
+
   fdr_threshold = 0.05
-  
+
   threshold = 0.9
   threshold = uniroot(function(k) FDRk(k, PPS)-fdr_threshold, c(0.001, 0.9))$root
   estimated_spikes = (PPS>threshold)
-  
+
   filename = paste0("02_data_analysis/03_bSCDC_sensitivity_study/output_RDS/estimated_spikes_win", n_window,"_theta_", 1/sigma2_alpha,".RDS")
   saveRDS(estimated_spikes, file=filename)
-  
+
   rm(PPS)
-  
-  
-  
-  
+
+
+
+
   #----------# #----------# #----------# #----------#
   #----------#  COMPUTE NEURONS CLUSTER  #----------#
   #----------# #----------# #----------# #----------#
-  
+
   est_cluster_neurons = salso(t(out$cluster_signal+1), maxNClusters = 100)
-  
+
   sort_labels_by_size = function(est_cluster) {
     est_cluster = est_cluster + 100
     idc = sort(table(est_cluster), decreasing=T)
@@ -92,12 +103,12 @@ for(sigma2_alpha in sigma2_alpha_seq) {
   }
   est_cluster_neurons = sort_labels_by_size(est_cluster_neurons)
   # table(est_cluster_neurons)
-  
+
   filename = paste0("02_data_analysis/03_bSCDC_sensitivity_study/output_RDS/est_cluster_neurons_win", n_window,"_theta_", 1/sigma2_alpha,".RDS")
   saveRDS(est_cluster_neurons, file=filename)
-  
-  
-  
+
+
+
   rm(calcium)
   rm(estimated_spikes, est_cluster_neurons)
   rm(out)

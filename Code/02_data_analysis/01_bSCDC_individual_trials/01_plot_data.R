@@ -63,7 +63,7 @@ CIRC = ggplot()+
   theme(text=element_text(size=17.5)) 
 CIRC
 
-ggsave("02_data_analysis/01_bSCDC_individual_trials/output_images/mouse_positionppp.pdf", CIRC, width = 5, height = 5)
+ggsave("02_data_analysis/01_bSCDC_individual_trials/output_images/mouse_position.pdf", CIRC, width = 5, height = 5)
 ggsave("02_data_analysis/01_bSCDC_individual_trials/output_images/mouse_position.epf", CIRC, width = 5, height = 5, device = cairo_ps)
 
 

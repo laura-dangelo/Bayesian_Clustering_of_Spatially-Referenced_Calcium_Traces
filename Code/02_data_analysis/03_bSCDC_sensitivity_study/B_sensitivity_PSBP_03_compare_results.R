@@ -22,15 +22,13 @@ sigma2_alpha_seq = c(0.5, 0.1, 0.01)
 
 
 for(i in 1:length(sigma2_alpha_seq)) {
-  #----------#  import run
-  filenameout = paste0("02_data_analysis/03_bSCDC_sensitivity_study/results/run_gibbs_window", n_window,"_theta_", 1/sigma2_alpha_seq[i],".RDS")
-  out = readRDS(file = filenameout)
-
-  # posterior estimates of the parameters
-  estimates_sigma2[i] = mean(out$sigma2)
-  estimates_tau2[i] = mean(out$tau2)
-  estimates_gamma[i] = mean(out$gamma)
-  rm(out)
+  
+  filename = paste0("02_data_analysis/03_bSCDC_sensitivity_study/output_RDS/estimates_win", n_window,"_theta_", 1/sigma2_alpha_seq[i],".RDS")
+  estimates = readRDS(file=filename)
+  
+  estimates_sigma2[i] = estimates$sigma2
+  estimates_tau2[i] = estimates$tau2
+  estimates_gamma[i] = estimates$gamma
   
   # firing rates
   filename = paste0("02_data_analysis/03_bSCDC_sensitivity_study/output_RDS/estimated_spikes_win", n_window,"_theta_", 1/sigma2_alpha_seq[i],".RDS")

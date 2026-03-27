@@ -11,7 +11,7 @@
 # In the Google Drive folder (https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing)
 # the RDS files produced by this script are available in the "Code/03_simulation_study/02_comparison_two-step_synthetic_data/results" folder.
 # You can download these files and copy them in the corresponding folder of this repository.
-
+# Notice that these files are not necessary for replicating the results of the paper.
 
 replications_sim = 50
 

@@ -7,6 +7,12 @@
 # Specifically, this script takes as input the runs of the Gibbs sampler and compute the classification error rates and ARI.
 # The outputs are saved in the output_RDS folder.
 
+#  _________________________________
+#  YOU CAN AVOID RUNNING THIS SCRIPT 
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+# the RDS files produced by this script are available in the "Code/03_simulation_study/01_sensitivity_study/output_RDS" folder.
+
+
 library(salso)
 library(mclust)
 

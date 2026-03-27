@@ -6,6 +6,12 @@
 # These scripts replicate the comparison with the two-step approach reported in Section S4.3 of the Supplementary Material.
 # Specifically, this script computes the classification error rates.
 
+#  _________________________________
+#  YOU CAN AVOID RUNNING THIS SCRIPT 
+#  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+# the RDS files produced by this script are available in the "Code/03_simulation_study/02_comparison_two-step_synthetic_data/output_RDS" folder.
+
+
 library(salso)
 library(mclust)
 replications_sim = 50
