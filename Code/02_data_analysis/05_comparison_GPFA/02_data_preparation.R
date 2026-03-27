@@ -16,13 +16,15 @@ a = readRDS("../Data/Time_windows/time_calcium_window1.RDS")
 p = readRDS("../Data/M3424F_coord_mouse_position.RDS")
 tp = readRDS("../Data/M3424F_time_mouse_position.RDS")
 
-
 data$pos_binary[7867:(7867+256)] = 3
 data$pos_binary[(7867+256):8378] = 4
 
 tmp = which(diff(data$pos_binary)!=0)
 tmp = c(0,tmp)
 tmp = c(tmp, length(data$pos1))
+
+idx = which(diff(tmp)>50)
+
 
 in_or_out <- matrix(NA,length(idx),2)
 colnames(in_or_out) <- c("index","in_or_out")
@@ -43,17 +45,14 @@ counts_spikes = matrix(0, n, TT)
 
 for(i in 1:325){
   name = paste0("02_data_analysis/05_comparison_GPFA/results/list_spikes_JW_neuron", i, ".RDS")
-  tmp = readRDS(name)
+  tmpp = readRDS(name)
   
   name = paste0("02_data_analysis/05_comparison_GPFA/results/number_spikes_JW_neuron", i, ".RDS")
   tmp2 = readRDS(name)
   tmp2[tmp2<0]=0
   
-  counts_spikes[i,tmp] = tmp2
+  counts_spikes[i,tmpp] = tmp2
 }
-
-
-idx = which(diff(tmp)>50)
 
 for(n_window in idx )
 {

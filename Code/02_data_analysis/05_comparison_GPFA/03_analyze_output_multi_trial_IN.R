@@ -76,7 +76,3 @@ plot_GPs = ggplot(data = df_GP, aes(x = time, y = y)) +
   ylab("Latent factor")  + xlab("Time (seconds)") +
   facet_wrap((fac)~., ncol=1)
 plot_GPs
-ggsave(plot_GPs, file = "02_data_analysis/05_comparison_GPFA/output_images/lGP_time_IN.pdf",
-       width = 5, height =7)
-
-
