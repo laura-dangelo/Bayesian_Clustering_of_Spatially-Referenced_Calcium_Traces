@@ -55,10 +55,10 @@ The key elements of this 03_simulation_study/03_computational_cost/output_RDS/D2
 ├── **03_bSCDC_sensitivity_study** &ensp;&ensp;&ensp;&ensp;# sensitivity studies on the prior parameters <br/>
 │   ├── A_sensitivity_alow_01_run_gibbs.R <br/>
 │   ├── A_sensitivity_alow_02_extract_results.R <br/>
-│   ├── A_REPL_sensitivity_alow_03_compare_results.R <br/>
+│   ├── A_sensitivity_alow_03_REPL_compare_results.R <br/>
 │   ├── B_sensitivity_PSBP_01_run_gibbs.R <br/>
 │   ├── B_sensitivity_PSBP_02_extract_results.R <br/>
-│   ├── B_REPL_sensitivity_PSBP_03_compare_results.R <br/>
+│   ├── B_sensitivity_PSBP_03_REPL_compare_results.R <br/>
 │   └── B_sensitivity_PSBP_04_toy_example.R <br/>
 |<br/>
 ├── **04_comparison_two-step** &ensp;&ensp;&ensp;&ensp;# comparison with the two-step deconvolution and clustering <br/>
