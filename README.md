@@ -21,19 +21,19 @@ Key structure:
 The `Code` folder contains the R project and should be used as the main directory to run the code.
 The structure of the repository is designed to facilitate the streamlined execution of all scripts required to replicate the analyses. Please do not change the folders’ names or paths to avoid errors. 
 
-The `Data` folder contains the raw and cleaned data used in the analyses. 
+The `Data` folder contains the data used in the analyses. 
 
-Large files are excluded from the repository, and are available in the Google Drive [folder](https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing). The name of each subfolder corresponds to the path of the files in the repository.  
-The Google Drive subfolders are:  
-- `folder_path/results` and contain the output of the Gibbs sampler algorithm or deconvolution algorithm.
+Large files (typically, outputs of the Gibbs sampler algorithm or deconvolution algorithm) are excluded from the repository, and are available in the Google Drive [folder](https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing). The name of each subfolder corresponds to the path of the files in the repository. Notice that these files are not necessary to replicate the analyses.  
 
 
 
 
 ## Using the Repo
-All analyses can be replicated starting from the original .mat file (M3424F_data_togo_neuron_behav_multiTrials_072621.mat), which is freely downloadable from the [Mendeley data repository](https://doi.org/10.17632/tnbwfw2pg2.2). However, some computations can be time-consuming, and we do not recommend starting from scratch.
-To this end, we provide pre-computed .RDS outputs to ease replication of the plots and analyses of the paper.
+All analyses can be replicated starting from the original .mat file (M3424F_data_togo_neuron_behav_multiTrials_072621.mat), which is freely downloadable from the [Mendeley data repository](https://doi.org/10.17632/tnbwfw2pg2.2). However, some computations can be time-consuming, and we do not recommend starting from scratch.<br/>
 
+
+** We provide pre-computed RDS outputs to ease replication of the plots and analyses of the paper.<br/>
+To replicate the analyses and plots of the paper starting from the pre-computed outputs, you just need to run the scripts marked by "REPL".**
 
 
 
@@ -44,27 +44,27 @@ The key elements of this 03_simulation_study/03_computational_cost/output_RDS/D2
 ├── **01_bSCDC_individual_trials** &ensp;&ensp;&ensp;&ensp;# single-window analyses <br/>
 │   ├── 01_plot_data.R <br/>
 │   ├── 02_run_gibbs.R <br/>
-│   ├── 03_analyze_individual_runs.R <br/>
-│   └── 04_PSM_neurons.R <br/>
+│   ├── 03_REPL_analyze_individual_runs.R <br/>
+│   └── 04_REPL_PSM_neurons.R <br/>
 |<br/>
 ├── **02_bSCDC_neuronal_response_to_position** &ensp;&ensp;&ensp;&ensp;# analyses on the overall neuronal activity <br/>
 │   ├── 00_auxiliary_functions_DONT_RUN.R <br/>
-│   ├── 01_plot_cluster_complexity.R <br/>
-│   └── 02_plot_activation_maps.R <br/>
+│   ├── 01_REPL_plot_cluster_complexity.R <br/>
+│   └── 02_REPL_plot_activation_maps.R <br/>
 |<br/>
 ├── **03_bSCDC_sensitivity_study** &ensp;&ensp;&ensp;&ensp;# sensitivity studies on the prior parameters <br/>
 │   ├── A_sensitivity_alow_01_run_gibbs.R <br/>
 │   ├── A_sensitivity_alow_02_extract_results.R <br/>
-│   ├── A_sensitivity_alow_03_compare_results.R <br/>
+│   ├── A_REPL_sensitivity_alow_03_compare_results.R <br/>
 │   ├── B_sensitivity_PSBP_01_run_gibbs.R <br/>
 │   ├── B_sensitivity_PSBP_02_extract_results.R <br/>
-│   ├── B_sensitivity_PSBP_03_compare_results.R <br/>
+│   ├── B_REPL_sensitivity_PSBP_03_compare_results.R <br/>
 │   └── B_sensitivity_PSBP_04_toy_example.R <br/>
 |<br/>
 ├── **04_comparison_two-step** &ensp;&ensp;&ensp;&ensp;# comparison with the two-step deconvolution and clustering <br/>
 │   ├── 01_spike_detection_JW.R <br/>
 │   ├── 02_run_kmeans.R <br/>
-│   └── 03_plot_results.R <br/>
+│   └── 03_REPL_plot_results.R <br/>
 └── **05_comparison_GPFA** &ensp;&ensp;&ensp;&ensp;# comparison with Bayesian Gaussian process factor analysis <br/>
 
 
@@ -78,18 +78,18 @@ The key elements of this folder are the following:
 │   ├── 01_simulate_data.R <br/>
 │   ├── 02_run_gibbs.R <br/>
 │   ├── 03_extract_results.R <br/>
-│   └── 04_plot_results.R <br/>
+│   └── 04_REPL_plot_results.R <br/>
 |<br/>
 ├── **02_comparison_two-step_synthetic_data** &ensp;&ensp;&ensp;&ensp;# comparison with the two-step method on synthetic data <br/>
 │   ├── 01_spike_detection_JW.R <br/>
 │   ├── 02_run_kmeans_compute_ARI.R <br/>
 │   ├── 03_extract_results.R <br/>
-│   └── 04_plot_results.R <br/>
+│   └── 04_REPL_plot_results.R <br/>
 |<br/>
 └── **03_computational_cost** &ensp;&ensp;&ensp;&ensp;# simulation study to evaluate the computational cost <br/>
 &ensp;&ensp;&ensp;├── 01_simulate_data.R <br/>
 &ensp;&ensp;&ensp;├── 02_run_gibbs.R <br/>
-&ensp;&ensp;&ensp;└── 03_extract_results.R <br/>
+&ensp;&ensp;&ensp;└── 03_REPL_extract_results.R <br/>
 
 
 
