@@ -37,8 +37,8 @@ All analyses can be replicated starting from the original .mat file (M3424F_data
 
 
 
-## Code
-#### Code > 02_data_analysis
+## Structure of the `Code` folder
+### Code > 02_data_analysis
 The key elements of this 03_simulation_study/03_computational_cost/output_RDS/D2.RDSfolder are the following:
 
 ├── **01_bSCDC_individual_trials** &ensp;&ensp;&ensp;&ensp;# single-window analyses <br/>
@@ -70,7 +70,7 @@ The key elements of this 03_simulation_study/03_computational_cost/output_RDS/D2
 
 
 
-#### Code > 03_simulation_study
+### Code > 03_simulation_study
 The key elements of this folder are the following:
 
 ├── **01_sensitivity_study** &ensp;&ensp;&ensp;&ensp;# sensitivity studies on synthetic data <br/>
