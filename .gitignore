@@ -3,7 +3,5 @@
 .Rhistory
 .DS_Store
 
-Data/M3424F*
-Data/GPFA*
 
 results/*.RDS
