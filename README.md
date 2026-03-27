@@ -32,8 +32,8 @@ Large files (typically, outputs of the Gibbs sampler algorithm or deconvolution 
 All analyses can be replicated starting from the original .mat file (M3424F_data_togo_neuron_behav_multiTrials_072621.mat), which is freely downloadable from the [Mendeley data repository](https://doi.org/10.17632/tnbwfw2pg2.2). However, some computations can be time-consuming, and we do not recommend starting from scratch.<br/>
 
 
-** We provide pre-computed RDS outputs to ease replication of the plots and analyses of the paper.<br/>
-To replicate the analyses and plots of the paper starting from the pre-computed outputs, you just need to run the scripts marked by "REPL".**
+**We provide pre-computed RDS outputs to ease replication of the plots and analyses of the paper.** <br/>
+**To replicate the analyses and plots of the paper starting from the pre-computed outputs, you just need to run the scripts marked by "REPL".**
 
 
 
