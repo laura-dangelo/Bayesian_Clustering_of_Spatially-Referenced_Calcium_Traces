@@ -8,7 +8,7 @@ Main structure:
 <ul>
   <li> Code 
     <ul>
-      <li> 01_data_preprocessing : preparation of the data from the original `.mat` file. </li>
+      <li> 01_data_preprocessing : preparation of the data from the original .mat file. </li>
       <li> 02_data_analysis : contains the scripts to replicate the real data analyses.</li>
       <li> 03_simulation_study : contains the scripts to replicate the simulation studies reported in the Supplementary Material.</li>
       <li> bSCDCsampler : R package implementing the Gibbs sampler.</li>
