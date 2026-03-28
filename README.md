@@ -1,15 +1,15 @@
 # Bayesian_Clustering_of_Spatially-Referenced_Calcium_Traces
 
-This repository contains the code for replication of the results in the paper "_Decoding Neuronal Ensembles from Spatially-Referenced Calcium Traces: A Bayesian Semiparametric Approach_" by D'Angelo, Denti, Canale, and Guindani (available on [arXiv](https://arxiv.org/abs/2508.09576)). It also contains the R package `bSCDCsampler`, which implements the Gibbs sampler used for posterior inference (see [Installation](#installation)).
+This repository contains the code to replicate the results in the paper "_Decoding Neuronal Ensembles from Spatially-Referenced Calcium Traces: A Bayesian Semiparametric Approach_" by D'Angelo, Denti, Canale, and Guindani (available on [arXiv](https://arxiv.org/abs/2508.09576)). It also contains the R package `bSCDCsampler`, which implements the Gibbs sampler for posterior inference (see [Installation](#installation)).
 
 ## Structure of the Repository
 
-Key structure:
+Main structure:
 <ul>
   <li> Code 
     <ul>
-      <li> 01_data_preprocessing : preparation of the data from the original .mat file. </li>
-      <li> 02_data_analysis : contains the scripts to replicate the analyses on the real data.</li>
+      <li> 01_data_preprocessing : preparation of the data from the original `.mat` file. </li>
+      <li> 02_data_analysis : contains the scripts to replicate the real data analyses.</li>
       <li> 03_simulation_study : contains the scripts to replicate the simulation studies reported in the Supplementary Material.</li>
       <li> bSCDCsampler : R package implementing the Gibbs sampler.</li>
     </ul>
@@ -17,28 +17,28 @@ Key structure:
   <li> Data </li>
 </ul>
 
-The `Code` folder contains the R project and should be used as the main directory to run the code.
-The structure of the repository is designed to facilitate the streamlined execution of all scripts required to replicate the analyses. Please do not change the folders’ names or paths to avoid errors. 
+The `Code` folder contains the R project and should be used as the main directory for running the code.
+The structure of the repository is designed to facilitate the streamlined execution of all scripts required to replicate the analyses. Please do not change the folder names or paths to avoid errors. 
 
 The `Data` folder contains the data used in the analyses. 
 
-Large files (typically, outputs of the Gibbs sampler algorithm or deconvolution algorithm) are excluded from the repository and are available in the Google Drive [folder](https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing). The name of each subfolder corresponds to the path of the files in the repository. Notice that these files are not necessary to replicate the analyses.  
+Large files (typically, outputs of the Gibbs sampler algorithm or the deconvolution algorithm) are excluded from the repository and are available in the Google Drive [folder](https://drive.google.com/drive/folders/1-1xf57mZBc1usA-iCZGkp4KPF8oX_5mV?usp=sharing). The name of each subfolder corresponds to the path of the files in the repository. Note that these files are not necessary to replicate the analyses.  
 
 
 
 
 ## Using the Repo
-All analyses can be replicated starting from the original .mat file (M3424F_data_togo_neuron_behav_multiTrials_072621.mat), which is freely downloadable from the [Mendeley data repository](https://doi.org/10.17632/tnbwfw2pg2.2). However, some computations can be time-consuming, and we do not recommend starting from scratch.<br/>
+All analyses can be replicated starting from the original `.mat` file (`M3424F_data_togo_neuron_behav_multiTrials_072621.mat`), which is freely available for download from the [Mendeley data repository](https://doi.org/10.17632/tnbwfw2pg2.2). However, some computations can be time-consuming, and we do not recommend starting from scratch.<br/>
 
 
-**We provide RDS files containing pre-computed outputs of the inference procedure to ease replication of the analyses.** <br/>
-**To replicate the analyses and plots of the paper starting from these pre-computed quantities, you only need to execute the scripts marked by "RUN".**
+**We provide RDS files containing precomputed outputs of the inference procedure to facilitate replication of the analyses.** <br/>
+**To replicate the analyses and plots of the paper starting from these precomputed quantities, you only need to execute the scripts marked by "RUN".**
 
 
 
 ## Structure of the `Code` folder
 ### Code > 02_data_analysis
-The key elements of this 03_simulation_study/03_computational_cost/output_RDS/D2.RDSfolder are the following:
+The key elements of this folder are the following:
 
 ├── **01_bSCDC_individual_trials** &ensp;&ensp;&ensp;&ensp;# single-window analyses <br/>
 │   ├── 01_plot_data.R <br/>
@@ -95,5 +95,5 @@ The key elements of this folder are the following:
 
 ## Installation
 The Code folder contains the binary file `bSCDCsampler_0.0.1.tar.gz`. You can install the package on R using
-``` install.packages(bSCDCsampler_0.0.1.tar.gz, repos = NULL, type="source") ```
+``` install.packages("bSCDCsampler_0.0.1.tar.gz", repos = NULL, type="source") ```
 
