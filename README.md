@@ -27,8 +27,8 @@ Large files (typically, outputs of the Gibbs sampler algorithm or the deconvolut
 
 
 
-## Using the Repo
-All analyses can be replicated starting from the original `.mat` file (`M3424F_data_togo_neuron_behav_multiTrials_072621.mat`), which is freely available for download from the [Mendeley data repository](https://doi.org/10.17632/tnbwfw2pg2.2). However, some computations can be time-consuming, and we do not recommend starting from scratch.<br/>
+## Using the Repository
+All analyses can be replicated starting from the original `.mat` file (`M3424F_data_togo_neuron_behav_multiTrials_072621.mat`), which is openly available from the [Mendeley data repository](https://doi.org/10.17632/tnbwfw2pg2.2). However, some computations can be time-consuming, and we do not recommend starting from scratch.<br/>
 
 
 **We provide RDS files containing precomputed outputs of the inference procedure to facilitate replication of the analyses.** <br/>
@@ -94,6 +94,13 @@ The key elements of this folder are the following:
 
 
 ## Installation
-The Code folder contains the binary file `bSCDCsampler_0.0.1.tar.gz`. You can install the package on R using
-``` install.packages("bSCDCsampler_0.0.1.tar.gz", repos = NULL, type="source") ```
 
+The Code folder contains the binary file `bSCDCsampler_0.0.1.tar.gz`. You can install the package on R using
+
+```r 
+install.packages("bSCDCsampler_0.0.1.tar.gz", repos = NULL, type="source") 
+```
+
+## Contact
+
+For questions or issues, please open an issue in the repository.
