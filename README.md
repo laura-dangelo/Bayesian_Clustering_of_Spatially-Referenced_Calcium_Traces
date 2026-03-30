@@ -49,14 +49,14 @@ The key elements of this folder are the following:
 │   ├── 02_gibbs_sampler.R <br/>
 │   ├── 03_RUN_analyze_individual_runs.R <br/>
 │   └── 04_RUN_PSM_neurons.R <br/>
-|<br/>
+│   <br/>
 ├── **02_bSCDC_neuronal_response_to_position** &ensp;&ensp;&ensp;&ensp;# analyses on the overall neuronal activity <br/>
 │   ├── 00_auxiliary_functions_DONT_RUN.R <br/>
 │   ├── 01_RUN_plot_cluster_complexity.R <br/>
 │   ├── 02_RUN_plot_activation_maps.R <br/>
 │   ├── 03_SHINY_APP_plot_all_couples_of_neurons.R <br/>
 │   └── 04_RUN_plot_spike_probability.R <br/>
-|<br/>
+│   <br/>
 ├── **03_bSCDC_sensitivity_study** &ensp;&ensp;&ensp;&ensp;# sensitivity studies on the prior parameters <br/>
 │   ├── A_sensitivity_alow_01_gibbs_sampler.R <br/>
 │   ├── A_sensitivity_alow_02_extract_results.R <br/>
@@ -65,12 +65,12 @@ The key elements of this folder are the following:
 │   ├── B_sensitivity_PSBP_02_extract_results.R <br/>
 │   ├── B_sensitivity_PSBP_03_RUN_compare_results.R <br/>
 │   └── B_sensitivity_PSBP_04_toy_example.R <br/>
-|<br/>
+│   <br/>
 ├── **04_comparison_two-step** &ensp;&ensp;&ensp;&ensp;# comparison with the two-step deconvolution and clustering <br/>
 │   ├── 01_spike_detection_JW.R <br/>
 │   ├── 02_kmeans.R <br/>
 │   └── 03_RUN_plot_results.R <br/>
-|<br/>
+│   <br/>
 └── **05_comparison_GPFA** &ensp;&ensp;&ensp;&ensp;# comparison with Bayesian Gaussian process factor analysis <br/>
 
 
@@ -85,13 +85,13 @@ The key elements of this folder are the following:
 │   ├── 02_gibbs_sampler.R <br/>
 │   ├── 03_extract_results.R <br/>
 │   └── 04_RUN_plot_results.R <br/>
-|<br/>
+│   <br/>
 ├── **02_comparison_two-step_synthetic_data** &ensp;&ensp;&ensp;&ensp;# comparison with the two-step method on synthetic data <br/>
 │   ├── 01_spike_detection_JW.R <br/>
 │   ├── 02_kmeans_compute_ARI.R <br/>
 │   ├── 03_extract_results.R <br/>
 │   └── 04_RUN_plot_results.R <br/>
-|<br/>
+│   <br/>
 └── **03_computational_cost** &ensp;&ensp;&ensp;&ensp;# simulation study to evaluate the computational cost <br/>
 &ensp;&ensp;&ensp;├── 01_simulate_data.R <br/>
 &ensp;&ensp;&ensp;├── 02_gibbs_sampler.R <br/>
