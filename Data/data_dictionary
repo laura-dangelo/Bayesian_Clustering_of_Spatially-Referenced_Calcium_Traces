@@ -1,0 +1,81 @@
+
+data_binary_position.RDS
+
+RDS collecting in a unique, organized, dataframe the various quantities extracted from the .mat file.
+(It combines all the .RDS files named "M3424F_xxx.RDS")
+
+'data.frame':	10870 obs. of  330 variables:
+ $ pos_binary  : variable that encodes the binary position of the mouse (inner circle/outer ring) at each time point. Encoded as {1,2}
+ $ pos1        : x-coordinate of the mouse location at each time point
+ $ pos2        : y-coordinate of the mouse location at each time point
+ $ time_pos    : time (ms) of the mouse position 
+ $ time_calcium: time (ms) of the calcium recording
+ $ X1          : fluorescence level of neuron 1 at each time point 
+ $ X2          : fluorescence level of neuron 2 at each time point 
+ ...            ...
+ $ X325        : fluorescence level of neuron 325 at each time point 
+
+ 
+#-----------------------# #-----------------------# #-----------------------# #-----------------------#
+ 
+GPFA_array_in_circle_NumTrials_x_Time45_x_Neurons.RDS
+'array': numeric [1:38, 1:45, 1:325] 
+ 
+GPFA_array_out_circle_NumTrials_x_Time45_x_Neurons.RDS
+'array': numeric [1:40, 1:45, 1:325] 
+
+   - dim 1: window (j=1,...,38 IN; j=1,...,40 OUT)
+   - dim 2: time (t=1,...,45)
+   - dim 3: neuron (i=1,...,325)
+each cell is the number of spikes for neuron i at time t, during window j.
+
+
+#-----------------------# #-----------------------# #-----------------------# #-----------------------#
+  
+M3424F_calcium.RDS
+Direct extraction from .mat file
+ 
+'matrix': numeric [1:325, 1:10870] 
+   - rows: neurons (i = 1,...,325)
+   - columns: time (t = 1,...,10870)
+each cell is the fluorescence level of neuron i at time t
+
+
+#-----------------------# #-----------------------# #-----------------------# #-----------------------#
+  
+M3424F_coord_mouse_position.RDS
+Direct extraction from .mat file
+ 
+'matrix': numeric [1:21755, 1:2]
+    - rows: time t (t = 1,...,21755)
+    - columns: mouse (x,y)-coordinates in the environment 
+    
+
+#-----------------------# #-----------------------# #-----------------------# #-----------------------#
+    
+M3424F_loc_neurons.RDS
+Direct extraction from .mat file
+ 
+'matrix': numeric [1:325, 1:2]
+    - rows: neurons (i = 1,...,325)
+    - columns: neurons (x,y)-coordinates in the hippocampus 
+    
+
+#-----------------------# #-----------------------# #-----------------------# #-----------------------#
+    
+M3424F_time_calcium.RDS
+Direct extraction from .mat file
+ 
+  - vector [1:21741]: time (ms) of the recording of the fluorescent traces
+
+
+#-----------------------# #-----------------------# #-----------------------# #-----------------------#
+    
+M3424F_time_mouse_position.RDS
+Direct extraction from .mat file
+ 
+  - vector [1:10870]: time (ms) of the recording of the mouse position
+
+
+#-----------------------# #-----------------------# #-----------------------# #-----------------------#
+  
