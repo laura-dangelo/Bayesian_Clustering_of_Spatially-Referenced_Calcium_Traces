@@ -53,8 +53,8 @@ The key elements of this folder are the following:
 ├── **02_bSCDC_neuronal_response_to_position** &ensp;&ensp;&ensp;&ensp;# analyses on the overall neuronal activity <br/>
 │   ├── 00_auxiliary_functions_DONT_RUN.R <br/>
 │   ├── 01_RUN_plot_cluster_complexity.R <br/>
-│   └── 02_RUN_plot_activation_maps.R <br/>
-│   └── 03_SHINY_APP_plot_all_couples_of_neurons.R <br/>
+│   ├── 02_RUN_plot_activation_maps.R <br/>
+│   ├── 03_SHINY_APP_plot_all_couples_of_neurons.R <br/>
 │   └── 04_RUN_plot_spike_probability.R <br/>
 |<br/>
 ├── **03_bSCDC_sensitivity_study** &ensp;&ensp;&ensp;&ensp;# sensitivity studies on the prior parameters <br/>
