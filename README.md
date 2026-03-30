@@ -1,4 +1,8 @@
-# Bayesian_Clustering_of_Spatially-Referenced_Calcium_Traces
+# Bayesian Clustering of Spatially-Referenced Calcium Traces
+
+[![arXiv:2508.09576](https://img.shields.io/badge/arXiv-2508.09576-b31b1b.svg)](https://arxiv.org/abs/2508.09576)
+![Last Commit](https://img.shields.io/github/last-commit/laura-dangelo/Bayesian_Clustering_of_Spatially-Referenced_Calcium_Traces)
+
 
 This repository contains the code to replicate the results in the paper "_Decoding Neuronal Ensembles from Spatially-Referenced Calcium Traces: A Bayesian Semiparametric Approach_" by D'Angelo, Denti, Canale, and Guindani (available on [arXiv](https://arxiv.org/abs/2508.09576)). It also contains the R package `bSCDCsampler`, which implements the Gibbs sampler for posterior inference (see [Installation](#installation)).
 
@@ -27,8 +31,8 @@ Large files (typically, outputs of the Gibbs sampler algorithm or the deconvolut
 
 
 
-## Using the Repo
-All analyses can be replicated starting from the original `.mat` file (`M3424F_data_togo_neuron_behav_multiTrials_072621.mat`), which is freely available for download from the [Mendeley data repository](https://doi.org/10.17632/tnbwfw2pg2.2). However, some computations can be time-consuming, and we do not recommend starting from scratch.<br/>
+## Using the Repository
+All analyses can be replicated starting from the original `.mat` file (`M3424F_data_togo_neuron_behav_multiTrials_072621.mat`), which is openly available from the [Mendeley data repository](https://doi.org/10.17632/tnbwfw2pg2.2). However, some computations can be time-consuming, and we do not recommend starting from scratch.<br/>
 
 
 **We provide RDS files containing precomputed outputs of the inference procedure to facilitate replication of the analyses.** <br/>
@@ -96,6 +100,13 @@ The key elements of this folder are the following:
 
 
 ## Installation
-The Code folder contains the binary file `bSCDCsampler_0.0.1.tar.gz`. You can install the package on R using
-``` install.packages("bSCDCsampler_0.0.1.tar.gz", repos = NULL, type="source") ```
 
+The Code folder contains the binary file `bSCDCsampler_0.0.1.tar.gz`. You can install the package on R using
+
+```r 
+install.packages("bSCDCsampler_0.0.1.tar.gz", repos = NULL, type="source") 
+```
+
+## Contact
+
+For questions or issues, please open an issue in the repository.
