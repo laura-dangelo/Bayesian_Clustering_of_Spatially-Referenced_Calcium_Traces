@@ -1,7 +1,7 @@
 #---------# #-----------# #---------# #---------# #-----------# #---------# #---------# 
 #---------#       PLOT THE DATA: CALCIUM TRACES AND MOUSE'S MOVEMENTS       #---------#
 #---------# #-----------# #---------# #---------# #-----------# #---------# #---------# 
-## This script is used to plot the mouse's movements and example calcium traces reported in Figure 1 of the paper
+## This script is used to plot the mouse's movements and example calcium traces reported in Figure 1 of the paper.
 
 library(ggplot2)
 library(ggforce)

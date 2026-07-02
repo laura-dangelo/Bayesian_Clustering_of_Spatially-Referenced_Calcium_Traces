@@ -2,8 +2,8 @@
 #---------# #-----------# #---------# #---------# #-----------# #---------# 
 #---------#   COMPUTE AND PLOT POSTERIOR SIMILARITY MATRICES    #---------#
 #---------# #-----------# #---------# #---------# #-----------# #---------# 
-# This script produces the posterior similarity matrix of the neurons' functional cluster allocation,
-# similar to Figure 6 in the main paper.
+# This script produces the posterior similarity matrices of the neurons' functional cluster allocation,
+# corresponding to Figure 6 in the main paper and Figure S13 in the Supplementary Material.
 
 # To speed up execution, the script loads some pre-computed quantities:
 #    - uncertClust.RDS

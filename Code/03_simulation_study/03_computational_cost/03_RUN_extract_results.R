@@ -2,6 +2,8 @@
 #                   EXTRACT TIME AND SHOW RESULTS
 #-------------------# #-------------------# #-------------------#
 
+# This script produces Figure S24 of the Supplementary Material. 
+
 library(salso)
 library(bSCDCsampler)
 library(tidyverse)

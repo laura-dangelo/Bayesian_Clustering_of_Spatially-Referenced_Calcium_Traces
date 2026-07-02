@@ -2,6 +2,11 @@
 #----------#   THIS SCRIPT EXTRACTS ESTIMATED QUANTITIES AND PLOTS RESULTS    #----------#
 #----------# #----------# #----------# #----------# #----------# #----------# #----------#
 
+# This script produces the plots contained in the output_images folder:
+# - heatmap of the spike amplitudes (Figure 9 in the main paper; Figures S16, S18, and S20 in the Supplementary Material)
+# - calcium traces sorted and colored by cluster (Figures S15, S17, S19, and S21 in the Supplementary Material)
+
+
 
 library(ggplot2)
 library(ggpubr)

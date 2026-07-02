@@ -1,4 +1,10 @@
 
+#---------# #-----------# #---------# #---------# #-----------# #---------# 
+#---------#             PLOT RESULTS OF FITTING GPFA            #---------#
+#---------# #-----------# #---------# #---------# #-----------# #---------# 
+
+# This script produces Figure S14 of the Supplementary Material.
+
 library(patchwork)
 library(ggplot2)
 

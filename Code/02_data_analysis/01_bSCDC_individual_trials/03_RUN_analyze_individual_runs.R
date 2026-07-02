@@ -4,9 +4,10 @@
 #---------# #-----------# #---------# #---------# #-----------# #---------# 
 
 # This script produces the plots contained in the output_images folder:
-# - heatmap of the spike amplitudes (Figure 3 in the main paper)
-# - calcium traces sorted and colored by cluster (Figure 4 in the main paper)
-# - trajectories of the spike probabilities, i.e., the transformed Gaussian processes (Figure 5 in the main paper)
+# - heatmap of the spike amplitudes (Figure 3 in the main paper; Figures S4, S7, and S10 in the Supplementary Material)
+# - calcium traces sorted and colored by cluster (Figure 4 in the main paper; Figures S5, S8, and S11 in the Supplementary Material)
+# - trajectories of the spike probabilities, i.e., the transformed Gaussian processes (Figure 5 in the main paper; 
+#    Figures S6, S9, and S12 in the Supplementary Material)
 
 # To avoid downloading all the runs of the Gibbs sampler, you can set load_precomputed = TRUE.
 # In this case, the script loads some pre-computed quantities:

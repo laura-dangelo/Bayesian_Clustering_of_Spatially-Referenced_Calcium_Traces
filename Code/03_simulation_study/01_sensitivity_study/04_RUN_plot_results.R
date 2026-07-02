@@ -3,8 +3,8 @@
 ##                  PLOT QUANTITIES OF INTEREST                ##
 #-------------------# #-------------------# #-------------------#
 
-# These scripts replicate the sensitivity study reported in Section S4.2 of the Supplementary Material.
-# Specifically, this script reproduces Figure S22 of the Supplementary Material.
+# This script replicates the sensitivity study reported in Section S4.2 of the Supplementary Material.
+# Specifically, this script reproduces Figure S22 and S23 of the Supplementary Material.
 
 library(viridisLite)
 library(ggplot2)
@@ -108,3 +108,43 @@ G
 ggsave("03_simulation_study/01_sensitivity_study/output_images/simulation_alow_results.pdf", G, width = 8, height = 8)
 ggsave("03_simulation_study/01_sensitivity_study/output_images/simulation_alow_results..eps",G, width = 8, height = 8, device = cairo_ps)
 
+
+
+
+
+example_data = readRDS("03_simulation_study/01_sensitivity_study/simulated_data/simulated_data1.RDS")
+
+df = data.frame("loc1" = example_data$loc[,1], "loc2" = example_data$loc[,2], 
+                "Cluster" = factor(example_data$cluster_neurons))
+
+G2 = ggplot(df, aes(x = loc1, y = loc2, fill = Cluster)) +
+  geom_point(size = 3, alpha = 0.9, shape = 21,  colour = "black",) +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1)) +
+  scale_fill_manual(
+    values = c(
+      "1" = "#66C2A5",  
+      "2" = "#FC8D62",  
+      "3" = "#8DA0CB"   
+    ),
+    name = "Cluster"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.background = element_rect(fill='transparent', color=NA), #transparent panel bg
+    plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
+    panel.border = element_rect(color = "darkgray ", fill=NA),
+    axis.line.x.bottom = element_line(color="gray"),
+    legend.position = "bottom",
+    legend.background = element_rect(fill='transparent', color = 'transparent'), #transparent legend bg
+    legend.box.background = element_rect(fill='transparent', color = 'transparent'), #transparent legend panel
+    legend.text = element_text(size=10),
+    strip.text = element_text(size=10),
+    strip.background = element_rect( fill=NA, color="gray76" ),
+    text = element_text(size=12)
+  )+
+  xlab("")  +
+  ylab("") 
+
+G2
+ggsave("03_simulation_study/01_sensitivity_study/output_images/simulation_example_data.pdf", G2, width = 5, height = 5)
+ggsave("03_simulation_study/01_sensitivity_study/output_images/simulation_example_data.epf", G2, width = 5, height = 5, device = cairo_ps)

@@ -4,7 +4,7 @@
 #---------# #-----------# #---------# #---------# #-----------# #---------# #---------# 
 
 # Second part of the sensitivity analysis reported in Section S2.1 of the Supplementary Material. 
-# This script produces the quantities of interest reported in the article. 
+# This script produces the quantities of interest and Figure S2 of the Supplementary Material. 
 
 library(plyr) 
 library(ggplot2)

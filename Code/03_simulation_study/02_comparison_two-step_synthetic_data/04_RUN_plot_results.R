@@ -4,7 +4,7 @@
 #-------------------# #-------------------# #-------------------#
 
 # These scripts replicate the comparison with the two-step approach reported in Section S4.3 of the Supplementary Material.
-# Specifically, this script reproduces Figure S23 of the Supplementary Material.
+# Specifically, this script reproduces Figure S25 of the Supplementary Material.
 
 
 library(ggplot2)
