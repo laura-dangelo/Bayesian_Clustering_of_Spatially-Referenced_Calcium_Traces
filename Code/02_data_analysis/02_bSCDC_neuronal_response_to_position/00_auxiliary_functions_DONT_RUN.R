@@ -17,12 +17,7 @@ find_mode <- function(x) {
 # Function that plots the selected neurons locations in the hippocampus
 # ==============================================================================
 
-plot_neuron_locations <- function(neu1, neu2, shapes, cols = c("royalblue4", "gold")) {
-  
-
-  if (!exists("loc_neurons")) {
-    stop("Global object 'loc_neurons' is missing.")
-  }
+plot_neuron_locations <- function(neu1, neu2, loc_neurons, shapes, cols = c("royalblue4", "gold")) {
   
   dataf <- data.frame(x = loc_neurons[,1], y = loc_neurons[,2])
   dataf$colorn <- "no"

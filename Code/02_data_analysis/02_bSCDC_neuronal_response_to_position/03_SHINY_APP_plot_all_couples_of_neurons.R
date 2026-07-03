@@ -20,7 +20,7 @@ addResourcePath(prefix = "neuron_maps_pdf", directoryPath = "output_images/all_m
 
 # -------------------------------------------------------------------------
 
-source("00_auxiliary_functions_DONT_RUN.R")
+source("00_auxiliary_functions_DONT_RUN_tmp.R")
 data <- readRDS("../../../Data/data_binary_position.RDS")
 WIND <- readRDS("../../02_data_analysis/02_bSCDC_neuronal_response_to_position/output_RDS/Windows_list.RDS")
 idx <- readRDS("../../02_data_analysis/02_bSCDC_neuronal_response_to_position/output_RDS/indices.RDS")
@@ -194,7 +194,12 @@ server <- function(input, output, session) {
   
   # --- Location Plot Output ---
   output$location_plot <- renderPlot({
-    plot_neuron_locations(neu1 = v_neu1(), neu2 = v_neu2())
+    plot_neuron_locations(
+      neu1 = v_neu1(),
+      neu2 = v_neu2(),
+      loc_neurons = loc_neurons,
+      shapes = c(21, 24)
+    )
   })
 }
 
