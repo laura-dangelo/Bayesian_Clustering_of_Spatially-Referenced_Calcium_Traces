@@ -43,7 +43,7 @@ All analyses can be replicated starting from the original `.mat` file (`M3424F_d
 ### Shiny App
 The repository contains a Shiny app for interactively visualizing the activity of pairs of neurons in relation to the mouse's position within the environment.
 
-To run the app, open the script `Code/02_data_analysis/02_bSCDC_neuronal_response_to_position/03_SHINY_APP_plot_all_couples_of_neurons.R` using the `02_bSCDC_neuronal_response_to_position` folder as the working directory. If you are using RStudio, simply click `Run App` to launch the interactive interface. You can then select the IDs of the two neurons you wish to visualize.
+To run the app, open the script `Code/02_data_analysis/02_bSCDC_neuronal_response_to_position/03_SHINY_APP_plot_all_couples_of_neurons.R` and load the required packages. If you are using RStudio, simply click `Run App` to launch the interactive interface. You can then select the IDs of the two neurons you wish to visualize.
 
 The app automatically updates and displays three plots. The two upper panels show the activity maps of the selected neurons, illustrating the intensity of each neuron's firing activity across the locations visited by the mouse. The lower panel shows the anatomical locations of the selected neurons within the hippocampus, allowing you to relate their activity patterns to their positions in the region of interest.
 
