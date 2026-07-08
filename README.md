@@ -101,12 +101,12 @@ The key elements of this folder are the following:
 │   └── 04_RUN_plot_results.R <br/>
 │   <br/>
 └── **03_computational_cost** &ensp;&ensp;&ensp;&ensp;# simulation study to evaluate the computational cost <br/>
-│   ├── 01_simulate_data.R
-│   ├── 02_gibbs_sampler.R
-│   ├── 03_RUN_extract_results.R
+│   ├── 01_simulate_data.R  <br/>
+│   ├── 02_gibbs_sampler.R  <br/>
+│   ├── 03_RUN_extract_results.R  <br/>
 │   <br/>
 └── **04_graphical_representation_prior** &ensp;&ensp;&ensp;&ensp;# graphical representation of the hierarchical model <br/>
-&ensp;&ensp;&ensp;└── plot_prior.R
+&ensp;&ensp;&ensp;&ensp;└── plot_prior.R
 
 
 
