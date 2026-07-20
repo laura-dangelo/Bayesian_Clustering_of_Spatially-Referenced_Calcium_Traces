@@ -6,3 +6,5 @@
 .so
 
 results/*.RDS
+Data/M3424F.rds
+Data/M3424F_trial4.rds

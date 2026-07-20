@@ -91,8 +91,9 @@ data = data.frame(pos, data)
 colnames(data)[1] = "pos_binary"
 str(data)
 
+table(diff(which(diff(data$pos_binary)!=0))) # length of each time window
 
-# # split window 107 which is over twice as long as the others
+# split window 106 which is over twice as long as the others
 
 data$pos_binary[7867:(7867+256)] = 3
 data$pos_binary[(7867+256):8378] = 4
