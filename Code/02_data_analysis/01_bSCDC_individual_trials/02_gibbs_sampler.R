@@ -20,7 +20,7 @@
 # Notice that to produce the plots for the overall activity you will need the output RDS files for all the windows.
 # The pre-computed RDS are available as Supplementary Material, as described above. 
 
-install.packages("bSCDCsampler_0.0.1.tar.gz")
+# install.packages("bSCDCsampler_0.0.1.tar.gz")
 library(bSCDCsampler)
 
 idx = readRDS("../Data/Time_windows/indices.RDS")
@@ -31,7 +31,7 @@ nrep = 30000
 burnin = 25000
 
 # set this variable to FALSE to run all the windows
-run_on_subset = TRUE
+run_on_subset = FALSE
 
 if(run_on_subset) {
   idx_to_run = c(4,17,36,77)

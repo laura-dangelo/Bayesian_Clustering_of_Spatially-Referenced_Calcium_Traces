@@ -66,7 +66,7 @@ FDRk = function(k, PPS){
 #--------------------# #--------------------# #--------------------# #--------------------# 
 
 if(run_on_subset) {
-  idx_to_run = c(4,17,36,77)
+  idx_to_run = idx_sub#c(4,17,36,77)
 } else {
   idx_to_run = indices_win
 }
