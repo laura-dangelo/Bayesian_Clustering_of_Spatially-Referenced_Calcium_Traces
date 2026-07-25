@@ -36,7 +36,7 @@ run_on_subset = FALSE
 if(run_on_subset) {
   idx_to_run = c(4,17,36,77)
 } else {
-  idx_to_run = idx
+  idx_to_run = idx[22:length(idx)]
 }
 
 

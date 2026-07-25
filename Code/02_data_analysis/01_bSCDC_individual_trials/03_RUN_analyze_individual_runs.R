@@ -25,8 +25,8 @@
 # saves the output plots into the folder as pdf and png images.
 
 
-load_precomputed = TRUE
-run_on_subset = TRUE
+load_precomputed = FALSE
+run_on_subset = FALSE
 
 
 library(ggplot2)
@@ -66,7 +66,7 @@ FDRk = function(k, PPS){
 #--------------------# #--------------------# #--------------------# #--------------------# 
 
 if(run_on_subset) {
-  idx_to_run = idx_sub#c(4,17,36,77)
+  idx_to_run = c(4,17,36,77)
 } else {
   idx_to_run = indices_win
 }

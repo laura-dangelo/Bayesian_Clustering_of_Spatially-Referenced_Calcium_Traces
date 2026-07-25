@@ -10,7 +10,7 @@
 #
 # If you prefer running it "from scratch", set the logical variable load_precomputed to FALSE (default = TRUE).
 
-load_precomputed = TRUE
+load_precomputed = FALSE
 
 library(ggplot2)
 library(ggforce)
