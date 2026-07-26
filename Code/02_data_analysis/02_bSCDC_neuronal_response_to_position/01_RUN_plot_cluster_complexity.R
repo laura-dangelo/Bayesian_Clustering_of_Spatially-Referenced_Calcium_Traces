@@ -272,7 +272,6 @@ ggsave(filename = "02_data_analysis/02_bSCDC_neuronal_response_to_position/outpu
 
 
 
-V
-M
+V+M
 
 
