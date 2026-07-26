@@ -25,7 +25,7 @@ loc_neurons = readRDS("../Data/M3424F_loc_neurons.RDS")
 indices_win = readRDS("../Data/Time_windows/indices.RDS")
 
 # #----------#  pick a window
-n_window = 17
+n_window = 24
 a_low_seq = c(0, 0.5, 1)
 
 for(a_low in a_low_seq) {

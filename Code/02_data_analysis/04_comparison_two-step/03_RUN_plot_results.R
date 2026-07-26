@@ -35,7 +35,7 @@ sort_labels_by_size = function(est_cluster) {
 #--------------------# #--------------------# 
 
 loc_neurons <- readRDS("../Data/M3424F_loc_neurons.RDS")
-indices_win = c(4,17,36,77)
+indices_win = c(15,18,24,85)
 
 indind <- 0
 
@@ -66,13 +66,6 @@ for(n_window in indices_win)
   
   estimated_cluster_kmeans = sort_labels_by_size(estimated_cluster_kmeans)
   table(estimated_cluster_kmeans)
-
-  if(n_window == 17){
-    # rename the clusters to improve visualization
-    estimated_cluster_kmeans[estimated_cluster_kmeans==3] = 103
-    estimated_cluster_kmeans[estimated_cluster_kmeans==4] = 3
-    estimated_cluster_kmeans[estimated_cluster_kmeans==103] = 4
-  }
 
   estimated_amplitudes = matrix(0,N,TT)
   for(i in 1:N){

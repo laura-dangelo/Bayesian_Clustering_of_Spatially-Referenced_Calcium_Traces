@@ -15,7 +15,7 @@ firing_rates = numeric(3)
 ARIs = matrix(1,3,3)
 
 # #----------#  pick a window
-n_window = 17
+n_window = 24
 a_low_seq = c(0, 0.5, 1)
 
 

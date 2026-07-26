@@ -10,7 +10,7 @@
 #
 # If you prefer running it "from scratch", set the logical variable load_precomputed to FALSE (default = TRUE).
 
-load_precomputed = FALSE
+load_precomputed = TRUE
 
 library(ggplot2)
 library(ggforce)
@@ -66,14 +66,14 @@ colnames(PSMs)
 head(PSMs)
 
 PSMs$name_win <- "Window"
-PSMs$name_win[PSMs$window==4] <- "Window #04"
-PSMs$name_win[PSMs$window==17] <- "Window #17"
-PSMs$name_win[PSMs$window==36] <- "Window #36"
-PSMs$name_win[PSMs$window==77] <- "Window #77"
+PSMs$name_win[PSMs$window==15] <- "Window #15"
+PSMs$name_win[PSMs$window==18] <- "Window #18"
+PSMs$name_win[PSMs$window==24] <- "Window #24"
+PSMs$name_win[PSMs$window==85] <- "Window #85"
 
 # plot the matrices for the representative windows
 
-psms17 = ggplot(PSMs[PSMs$window==17,])+
+psms24 = ggplot(PSMs[PSMs$window==24,])+
   # theme_void()+
   theme_minimal() +
   theme(
@@ -100,17 +100,17 @@ psms17 = ggplot(PSMs[PSMs$window==17,])+
   xlab("Neuron") + ylab("Neuron") +
   scale_fill_viridis_c("Probability", option="inferno", begin = 0.15, end = 1, direction = -1)+
   theme(legend.position= "right")
-psms17
+psms24
 
 
-filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_images/PSM17.pdf")
-ggsave(filename, psms17, width = 5, height = 4)
-filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_images/PSM17.png")
-ggsave(filename, psms17, width = 5, height = 4)
+filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_images/PSM24.pdf")
+ggsave(filename, psms24, width = 5, height = 4)
+filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_images/PSM24.png")
+ggsave(filename, psms24, width = 5, height = 4)
 
 
 
-psms1 = ggplot(PSMs[PSMs$window %in% c(4,36,77),])+
+psms1 = ggplot(PSMs[PSMs$window %in% c(15,18,85),])+
   # theme_void()+
   theme_minimal() +
   theme(

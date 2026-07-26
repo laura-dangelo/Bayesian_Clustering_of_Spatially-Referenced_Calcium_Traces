@@ -45,10 +45,11 @@ summary(c(cocluster_neurons)/80)
 which(cocluster_neurons/80 > .8, arr.ind = TRUE)
 
 
-neu1 = 312
-neu2 = 288
-neu3 = 232
-neu4 = 118
+neu1 = 187
+neu2 = 20
+
+neu3 = 194
+neu4 = 130
 
 pclust <- cocluster_neurons/80
 pclust[neu1,neu2]
@@ -68,7 +69,7 @@ win = unlist(apply(
     1:length(which(diff(data$pos_binary)!=0)),
     c(0,(which(diff(data$pos_binary)!=0)))[1:138],
     (which(diff(data$pos_binary)!=0))), 1, function(x) rep(x[1], x[3]-x[2])))
-win = c(win, rep(139, 10870-10862))
+win = c(win, rep(139, nrow(data)-length(win)))
 data$win = win
 data = data[,c(1:5,331,6:330)]
 
@@ -97,8 +98,8 @@ Q22 <- G22+ylab(" \n ")+ggtitle("Neuron D")
 #  Plot neurons' locations in the hippocampus #
 #---------# #---------# #---------# #---------# 
 
-G13 <- plot_neuron_locations(neu1, neu2, c(23,24))
-G23 <- plot_neuron_locations(neu3, neu4, c(22,25), cols = c("forestgreen","maroon2"))
+G13 <- plot_neuron_locations(neu1, neu2, loc_neurons, c(23,24))
+G23 <- plot_neuron_locations(neu3, neu4, loc_neurons, c(22,25), cols = c("forestgreen","maroon2"))
 Q13 <- G13 +ggtitle("Neurons A and B")+xlab(" \n ")
 Q23 <- G23 +ggtitle("Neurons C and D")
 

@@ -31,7 +31,7 @@ a_low_seq = c(0, 0.5)
 par_tau2 = 10
 par_sigma2 = 4
 
-n_window = 17  ### select window
+n_window = 24  ### select window
 
 for(a_low in a_low_seq) {
 

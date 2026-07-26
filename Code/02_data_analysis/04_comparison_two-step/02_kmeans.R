@@ -18,7 +18,7 @@ idx = readRDS("../Data/Time_windows/indices.RDS")
 n_w = 0
 n_window = idx[n_w+1]
 
-idx = c(4,17,36,77)
+idx = c(15,18,24,85)
 
 for(n_window in idx) {
   n_w = n_w+1

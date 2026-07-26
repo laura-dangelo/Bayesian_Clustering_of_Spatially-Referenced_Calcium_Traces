@@ -79,7 +79,7 @@ pnum = ggplot() +
     low = "black",
     mid = "deeppink2",
     high = "yellow",
-    midpoint = 0.08,
+    midpoint = 0.06,
     # limits = c(0,0.15), 
     name = "Spike probability"
   ) +

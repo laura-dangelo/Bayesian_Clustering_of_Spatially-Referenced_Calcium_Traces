@@ -16,7 +16,7 @@ estimates_gamma = numeric(3)
 firing_rates = numeric(3)
 
 # #----------#  pick a window
-n_window = 17
+n_window = 24
 sigma2_alpha_seq = c(0.5, 0.1, 0.01)
 
 
@@ -82,25 +82,6 @@ ARIs
 table(est_cluster_neurons05)
 table(est_cluster_neurons01)
 table(est_cluster_neurons001)
-
-
-est_cluster_neurons01 = est_cluster_neurons01 + 100
-est_cluster_neurons01[est_cluster_neurons01==102] = 4
-est_cluster_neurons01[est_cluster_neurons01==103] = 3
-est_cluster_neurons01[est_cluster_neurons01==104] = 2
-est_cluster_neurons01[est_cluster_neurons01>100] = est_cluster_neurons01[est_cluster_neurons01>100]-100
-table(est_cluster_neurons01)
-
-
-
-est_cluster_neurons001 = est_cluster_neurons001 + 100
-est_cluster_neurons001[est_cluster_neurons001==102] = 3
-est_cluster_neurons001[est_cluster_neurons001==103] = 2
-est_cluster_neurons001[est_cluster_neurons001==105] = 8
-est_cluster_neurons001[est_cluster_neurons001==108] = 5
-est_cluster_neurons001[est_cluster_neurons001>100] = est_cluster_neurons001[est_cluster_neurons001>100]-100
-table(est_cluster_neurons001)
-
 
 
 loc_neurons = readRDS("../Data/M3424F_loc_neurons.RDS")

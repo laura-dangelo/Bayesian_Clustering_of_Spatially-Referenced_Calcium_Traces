@@ -18,7 +18,7 @@ library(FastLZeroSpikeInference)
 
 idx = readRDS("../Data/Time_windows/indices.RDS")
 
-idx_to_run = c(4,17,36,77)
+idx_to_run = c(15,18,24,85)
 
 n_w = 0
 n_window = idx_to_run[n_w+1]

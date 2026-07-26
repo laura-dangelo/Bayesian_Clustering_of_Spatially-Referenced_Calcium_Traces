@@ -23,7 +23,7 @@ library(mclust)
 
 
 # #----------#  pick a window
-n_window = 17
+n_window = 24
 sigma2_alpha_seq = c(0.5, 0.1, 0.01)
 
 for(sigma2_alpha in sigma2_alpha_seq) {

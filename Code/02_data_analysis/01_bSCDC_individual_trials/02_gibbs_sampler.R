@@ -31,12 +31,12 @@ nrep = 30000
 burnin = 25000
 
 # set this variable to FALSE to run all the windows
-run_on_subset = FALSE
+run_on_subset = TRUE
 
 if(run_on_subset) {
-  idx_to_run = c(4,17,36,77)
+  idx_to_run = c(15,18,24,85)
 } else {
-  idx_to_run = idx[22:length(idx)]
+  idx_to_run = idx
 }
 
 

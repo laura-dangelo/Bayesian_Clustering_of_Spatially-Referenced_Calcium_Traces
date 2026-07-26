@@ -28,7 +28,7 @@ par_sigma2 = 4
 
 sigma2_alpha_seq = c(0.5, 0.1, 0.01)
 
-n_window = 17  ### select window
+n_window = 24  ### select window
 
 for(sigma2_alpha in sigma2_alpha_seq) {
 
@@ -58,8 +58,8 @@ for(sigma2_alpha in sigma2_alpha_seq) {
   cl_s_start = cl_neurons$cluster -1
   
   par_varcov_loc = 500
-  nrep = 30#000
-  burnin = 25#000
+  nrep = 30000
+  burnin = 25000
   
   out = calcium_gibbs_burnin(Nrep = nrep, 
                              burnin = burnin,

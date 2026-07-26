@@ -56,7 +56,7 @@ win = unlist(apply(
     1:length(which(diff(data$pos_binary)!=0)),
     c(0,(which(diff(data$pos_binary)!=0)))[1:138],
     (which(diff(data$pos_binary)!=0))), 1, function(x) rep(x[1], x[3]-x[2])))
-win = c(win, rep(139, 10870-10862))
+win = c(win, rep(139, nrow(data)-length(win)))
 data$win = win
 data = data[,c(1:5,331,6:330)]
 
@@ -146,10 +146,10 @@ V <- ggplot()+
   scale_fill_gradient2("Variance",low = "transparent",
                        mid = "lightpink1",
                        high = "maroon",
-                       midpoint = .12,
+                       midpoint = .1,
                        na.value = "transparent",
-                       breaks = seq(-0.05, 0.25, 0.05),
-                       labels = c("", seq(0, 0.25, 0.05) )
+                       breaks = seq(-0.1, 0.24, 0.05),
+                       labels = c(seq(0, 0.24, 0.05) )
                        )+
  geom_contour(color = "black", alpha = 0.1)+
   geom_circle(aes(x0=0, y0=0, r=1.05), col=1, alpha=0,fill="transparent")+
@@ -183,6 +183,7 @@ V <- ggplot()+
   ggtitle("Posterior variance of the number of clusters") 
 
 V
+
 ggsave(filename = "02_data_analysis/02_bSCDC_neuronal_response_to_position/output_images/post_variance.png",
       plot = V, width = 6, height = 6)
 ggsave(filename = "02_data_analysis/02_bSCDC_neuronal_response_to_position/output_images/post_variance.pdf",
