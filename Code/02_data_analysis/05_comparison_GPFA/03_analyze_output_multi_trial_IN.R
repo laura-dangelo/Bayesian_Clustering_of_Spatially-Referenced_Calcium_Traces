@@ -50,7 +50,7 @@ out = read.csv(file = filename)
 str(out)
 
 
-df_GP = data.frame("y" = c(out[,1],out[,2],out[,24]), "fac" = rep(1:3,each=45), time = rep(1:45, 3)/15)
+df_GP = data.frame("y" = c(out[,1],out[,2],out[,3]), "fac" = rep(1:3,each=45), time = rep(1:45, 3)/15)
 
 plot_GPs = ggplot(data = df_GP, aes(x = time, y = y)) +
   geom_line(aes(y = y), col = "turquoise4", lwd = 1 ) +
