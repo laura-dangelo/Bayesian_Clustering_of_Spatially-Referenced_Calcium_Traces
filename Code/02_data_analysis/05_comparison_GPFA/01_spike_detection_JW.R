@@ -10,11 +10,11 @@ library(FastLZeroSpikeInference)
 calcium = readRDS("../Data/M3424F_calcium.RDS")
 
 dd = diff(t(calcium))
-sigma2_start = var(calcium[calcium <  quantile(dd, .95)])
+sigma2_start = var(calcium[calcium <  quantile(dd, .8)])
 
 
 lambdas = seq(30,350, length.out = 300)
-gam = 0.95
+gam = 0.98
 sd_trace = sqrt(sigma2_start)
 
 chosen_lambdas = numeric(325)
