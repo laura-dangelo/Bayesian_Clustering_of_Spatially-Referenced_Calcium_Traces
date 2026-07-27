@@ -33,7 +33,7 @@ for(n_window in idx) {
   name = paste0("02_data_analysis/04_comparison_two-step/output_RDS/estimated_calcium_JW_window", n_window, ".RDS")
   estimated_calcium = readRDS(name)
 
-  n_clus = 2:15
+  n_clus = 2:10
   cluster_kmeans = array(dim=c(N,N,length(n_clus)))
   estimated_clusters = matrix(0, length(n_clus),N)
   for(k in 1:length(n_clus)) {
@@ -49,8 +49,8 @@ for(n_window in idx) {
     cluster_kmeans[,,k] = output_cl
     estimated_clusters[k,] = minVI(output_cl)$cl
   }
-  chooseK = maximiseSilhouette( cluster_kmeans, estimated_clusters, maxK=15 )
-  K = which.max(chooseK$silhouette[4:length(chooseK$silhouette)])+1
+  chooseK = maximiseSilhouette( cluster_kmeans, estimated_clusters, maxK=10 )
+  K = which.max(chooseK$silhouette[4:length(chooseK$silhouette)])+4
   
   estimated_cluster_kmeans = estimated_clusters[K,]
   name = paste0("02_data_analysis/04_comparison_two-step/output_RDS/estimates_clusterkmeans_window", n_window, ".RDS")

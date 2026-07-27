@@ -136,8 +136,9 @@ new <- expand_grid(fit$xyz.est$x,fit$xyz.est$y)
 newx <- new[,1]
 newy <- new[,2]
 
-fit$xyz.est$z2 <- image.smooth(fit$xyz.est$z, theta = 10)$z
+fit$xyz.est$z2 <- image.smooth(fit$xyz.est$z, theta = 5)$z
 fit$xyz.est$z2[is.na(fit$xyz.est$z)] <- NA
+
 
 V <- ggplot()+
   geom_tile(aes(x=pull(newx),
@@ -146,10 +147,10 @@ V <- ggplot()+
   scale_fill_gradient2("Variance",low = "transparent",
                        mid = "lightpink1",
                        high = "maroon",
-                       midpoint = .1,
+                       midpoint = quantile(fit$xyz.est$z2,.975,na.rm=TRUE),
                        na.value = "transparent",
-                       breaks = seq(-0.1, 0.24, 0.05),
-                       labels = c(seq(0, 0.24, 0.05) )
+                       breaks = seq(0, max(fit$xyz.est$z2,na.rm=TRUE), 0.05),
+                       labels = c(seq(0, max(fit$xyz.est$z2,na.rm=TRUE), 0.05) )
                        )+
  geom_contour(color = "black", alpha = 0.1)+
   geom_circle(aes(x0=0, y0=0, r=1.05), col=1, alpha=0,fill="transparent")+
@@ -204,7 +205,7 @@ y <- unc_clust_ggplot$y
 z <- unc_clust_ggplot$mod
 data <- cbind(x, y, z)
 
-fit <- mba.surf(
+fit_m <- mba.surf(
   data,
   no.X = 200,
   no.Y = 200,
@@ -212,24 +213,24 @@ fit <- mba.surf(
 )
 
 
-new <- expand_grid(fit$xyz.est$x,fit$xyz.est$y)
-newx <- new[,1]
-newy <- new[,2]
+new_m <- expand_grid(fit_m$xyz.est$x,fit_m$xyz.est$y)
+newx_m <- new_m[,1]
+newy_m <- new_m[,2]
 
-fit$xyz.est$z2 <- image.smooth(fit$xyz.est$z, theta = 10)$z
-fit$xyz.est$z2[is.na(fit$xyz.est$z)] <- NA
+fit_m$xyz.est$z2 <- image.smooth(fit_m$xyz.est$z, theta = 5)$z
+fit_m$xyz.est$z2[is.na(fit_m$xyz.est$z)] <- NA
 
 M <- ggplot()+
-  geom_tile(aes(x=pull(newx),
-                y=pull(newy),
-                fill=round(c(fit$xyz.est$z2),4)))+
+  geom_tile(aes(x=pull(newx_m),
+                y=pull(newy_m),
+                fill=round(c(fit_m$xyz.est$z2),4)))+
   scale_fill_gradient2("Mode",low = "transparent",
                        mid = "lightblue",
                        high = "darkblue",
-                       midpoint = 14,
+                       midpoint = quantile(fit_m$xyz.est$z2,.975,na.rm=TRUE),
                        na.value = "transparent",
-                       breaks = seq(7,20,2),
-                       labels = seq(7,20,2) )+
+                       breaks = seq(7, max(fit_m$xyz.est$z2,na.rm=TRUE), 2),
+                       labels = seq(7, max(fit_m$xyz.est$z2,na.rm=TRUE), 2) )+
   geom_contour(color = "black", alpha = 0.1)+
   geom_circle(aes(x0=0, y0=0, r=1.05), col=1, alpha=0,fill="transparent")+
   geom_circle(aes(x0=0, y0=0, r=.73), col=1, alpha=0,fill="transparent")+
@@ -271,6 +272,6 @@ ggsave(filename = "02_data_analysis/02_bSCDC_neuronal_response_to_position/outpu
 
 
 
-
+V+M
 
 

@@ -40,7 +40,7 @@ CIRC = ggplot()+
   geom_circle(aes(x0=0, y0=0, r=.71), col="white", alpha=1, fill="white")+
   geom_circle(aes(x0=0, y0=0, r=.71), col=NA, alpha=.1, fill="turquoise")+
   geom_path(aes(x = data[idcirc,]$pos1, y= data[idcirc,]$pos2), alpha=.25, lwd=0.3)+
-  geom_path(aes(x = data[win==17,]$pos1, y= data[win==17,]$pos2),alpha=1, col = "coral3", lwd=0.7)+
+  geom_path(aes(x = data[win==24,]$pos1, y= data[win==24,]$pos2),alpha=1, col = "coral3", lwd=0.7)+
   ylab("y coordinate")+xlab("x coordinate")+
   theme_minimal() +
   theme(
@@ -94,7 +94,7 @@ background = data.frame(
   "coll" = rep(1:2, 70)[1:(length(stacchi)-1)]
 )
 
-b17 = background[17,]  
+b17 = background[24,]  
 background = background[c(1:16,18:138),]
 
 p1 = ggplot() + 

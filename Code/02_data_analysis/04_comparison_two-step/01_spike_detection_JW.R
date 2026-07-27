@@ -38,13 +38,13 @@ for(n_window in idx_to_run) {
   estimated_amplitudes = matrix(0,N,TT)
   
   dd = apply(calcium, 2, diff)
-  sigma2_start = var(calcium[calcium <  quantile(dd, .85)])
+  sigma2_start = var(calcium[calcium <  quantile(dd, .8)])
   
   #-----------------------# #-----------------------# 
   #      apply JW model for spike detection         #
   #-----------------------# #-----------------------# 
   lambdas = seq(0.01,10, length.out = 500)
-  gam = 0.96
+  gam = 0.98
   sd_trace = sqrt(sigma2_start)
   
   # select the parameter lambda so that the number of detected spikes smaller than 1 estimated sd is zero
