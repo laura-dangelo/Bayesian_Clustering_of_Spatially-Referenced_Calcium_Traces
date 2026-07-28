@@ -42,15 +42,15 @@ ggsave(p1, file = "02_data_analysis/05_comparison_GPFA/output_images/scale_vs_nu
        width = 5, height = 4)
 
 
-which((scale_fac$logs > -5.45)&(scale_fac$nu > 0.000076))
-which(scale_fac$color>22)
+which((scale_fac$logs > -3.67)&(scale_fac$nu > 3e-04))
+
 
 filename = paste0("02_data_analysis/05_comparison_GPFA/RUN_GPFA_multi_trial_IN/output_GPFA_IN.csv")
 out = read.csv(file = filename)
 str(out)
 
 
-df_GP = data.frame("y" = c(out[,1],out[,2],out[,3]), "fac" = rep(1:3,each=45), time = rep(1:45, 3)/15)
+df_GP = data.frame("y" = c(out[,1],out[,3],out[,4]), "fac" = rep(1:3,each=45), time = rep(1:45, 3)/15)
 
 plot_GPs = ggplot(data = df_GP, aes(x = time, y = y)) +
   geom_line(aes(y = y), col = "turquoise4", lwd = 1 ) +

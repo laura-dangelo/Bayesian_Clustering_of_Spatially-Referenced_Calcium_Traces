@@ -83,6 +83,23 @@ table(est_cluster_neurons05)
 table(est_cluster_neurons01)
 table(est_cluster_neurons001)
 
+est_cluster_neurons05[est_cluster_neurons05==2] = 102
+est_cluster_neurons05[est_cluster_neurons05==3] = 2
+est_cluster_neurons05[est_cluster_neurons05==102] = 3
+
+est_cluster_neurons05[est_cluster_neurons05==4] = 104
+est_cluster_neurons05[est_cluster_neurons05==5] = 4
+est_cluster_neurons05[est_cluster_neurons05==104] = 5
+
+est_cluster_neurons001[est_cluster_neurons001==2] = 102
+est_cluster_neurons001[est_cluster_neurons001==5] = 2
+est_cluster_neurons001[est_cluster_neurons001==102] = 5
+
+est_cluster_neurons01[est_cluster_neurons01==3] = 103
+est_cluster_neurons01[est_cluster_neurons01==5] = 3
+est_cluster_neurons01[est_cluster_neurons01==103] = 5
+
+
 
 loc_neurons = readRDS("../Data/M3424F_loc_neurons.RDS")
 
