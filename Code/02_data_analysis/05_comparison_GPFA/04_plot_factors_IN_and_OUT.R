@@ -17,7 +17,7 @@ out_IN = read.csv(file = filename)
 str(out_IN)
 
 
-df_GP = data.frame("y" = c(out_IN[,1],out_IN[,2],out_IN[,24], out_OUT[,17]), 
+df_GP = data.frame("y" = c(out_IN[,1],out_IN[,3],out_IN[,4], out_OUT[,1]), 
                    "fac" = rep(c("Factor 1 - IN","Factor 2 - IN","Factor 3 - IN","Factor 1 - OUT"),each=45), time = rep(1:45, 4)/15)
 
 df_GP$y = df_GP$y * 1000
@@ -127,9 +127,9 @@ pp=wrap_plots(
   ncol = 3
 )
 pp
-ggsave(pp, file = "02_data_analysis/05_comparison_GPFA/output_images/lGP_time_IN.pdf",
+ggsave(pp, file = "02_data_analysis/05_comparison_GPFA/output_images/GPFA_time_IN.pdf",
        width = 11, height =3)
 
 p_GP4
-ggsave(p_GP4, file = "02_data_analysis/05_comparison_GPFA/output_images/lGP_time_OUT.pdf",
+ggsave(p_GP4, file = "02_data_analysis/05_comparison_GPFA/output_images/GPFA_time_OUT.pdf",
        width = 11/3, height =3)
