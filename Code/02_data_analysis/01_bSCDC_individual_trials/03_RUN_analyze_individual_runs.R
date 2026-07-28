@@ -173,34 +173,34 @@ for(n_window in idx_to_run)
   }
   
   if(load_precomputed){
-    
+
     filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_RDS/meltM_win", n_window, ".RDS")
     meltM = readRDS(file=filename)
     order_series = sort(est_cluster_neurons[(est_cluster_neurons>1)&(est_cluster_neurons<first_singleton)], index.return=T)
     annotations = c(0,which(diff(order_series$x)>0)) + c(diff( c(0,which(diff(order_series$x)>0)) )/2, 1) + 0.5
-    
+
   } else {
-    
+
     mAA <- t(apply(out$AA,c(1,2),mean))
     mAA = mAA[(est_cluster_neurons>1)&(est_cluster_neurons<first_singleton), ]
     order_series = sort(est_cluster_neurons[(est_cluster_neurons>1)&(est_cluster_neurons<first_singleton)], index.return=T)
     annotations = c(0,which(diff(order_series$x)>0)) + c(diff( c(0,which(diff(order_series$x)>0)) )/2, 1) + 0.5
-    
+
     mAA = mAA[order_series$ix,]
     mAA = mAA[,2:TT]
     meltM =reshape2::melt(t(mAA))
     meltM$time = meltM$Var1/15
-    
+
     filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_RDS/meltM_win", n_window, ".RDS")
     saveRDS(meltM, file=filename)
   }
 
-  heatmap_spike = ggplot() + 
+  heatmap_spike = ggplot() +
     geom_tile(aes( x = time, y = Var2, fill = value),
               data = meltM) +
     scale_fill_viridis_c("Amplitude", option = "magma", direction=-1, )  +
-    geom_hline(yintercept = which(diff(order_series$x)>0)+0.5, 
-               linetype="dashed", 
+    geom_hline(yintercept = which(diff(order_series$x)>0)+0.5,
+               linetype="dashed",
                color = "gray", linewidth=0.5)+
     theme(axis.text.x = element_text(angle = 30, hjust = 1)) +
     theme_minimal() +
@@ -221,16 +221,16 @@ for(n_window in idx_to_run)
     )+
     xlab("Time (seconds)")  +
     ylab("Neurons") +
-    annotate("text", x = -0.2, y = annotations, label = as.character(2:(length(annotations)+1))) + scale_y_reverse() 
-  
-  # heatmap_spike
-  
+    annotate("text", x = -0.2, y = annotations, label = as.character(2:(length(annotations)+1))) + scale_y_reverse()
+
+  heatmap_spike
+
   filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_images/heatmap_spikes_win", n_window, ".pdf")
   ggsave(filename, heatmap_spike, width = 8, height = 6)
   filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_images/heatmap_spikes_win", n_window, ".png")
   ggsave(filename, heatmap_spike, width = 8, height = 6)
-  
-  
+
+
   
   
   #---------# #-----------# #---------# #---------# #-----------# #---------# 
@@ -257,7 +257,7 @@ for(n_window in idx_to_run)
     }
     
     mcmc_GP = out$latent_signal[,,selected_rows]
-    ind_patch <- min(min(7,first_singleton-1),max(est_cluster_neurons))
+    ind_patch <- min(first_singleton-1,max(est_cluster_neurons))
     clus = 2:ind_patch
     df_GP = data.frame("clus"=sort(rep(clus,TT)), "time"=rep(1:TT,length(clus)), 
                        "y"=0, "lower" = 0, "upper" = 0)
@@ -284,7 +284,9 @@ for(n_window in idx_to_run)
     rm(id,i,j,selected_rows, seq_cl, est_GP, mcmc_GP,hpdGP)
   }
   
-  plot_GPs = ggplot(data = df_GP, aes(x = time, y = y, color=clus)) + 
+  minplot = max(which(table(est_cluster_neurons)>=10))
+  
+  plot_GPs = ggplot(data = df_GP[df_GP$clus<minplot,], aes(x = time, y = y, color=clus)) + 
     geom_ribbon(aes(ymin = lower, ymax = upper),
                 alpha=0.3, col = "turquoise4", fill = "turquoise4", lwd= 0.3) +
     geom_line(aes(y = y), col = "turquoise4", lwd = 1 ) +
@@ -308,61 +310,61 @@ for(n_window in idx_to_run)
     )+
     # scale_y_continuous(breaks = c(0.0, 0.1, 0.2,0.3),  limits = c(0,0.3)) +
     ylab("Spike probability")  + xlab("Time (seconds)") + 
-    facet_wrap((label_clus)~., ncol=2)
-  # plot_GPs
+    facet_wrap((label_clus)~., ncol=3)
+  plot_GPs
   
   filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_images/plot_GPs_win", n_window, ".pdf")
-  ggsave(filename, plot_GPs, width = 8, height = 4.5)
+  ggsave(filename, plot_GPs, width = 10, height = 4)
   filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_images/plot_GPs_win", n_window, ".png")
-  ggsave(filename, plot_GPs, width = 8, height = 4.5)
+  ggsave(filename, plot_GPs, width = 10, height = 4)
   
   
   rm(df_GP)
   rm(plot_GPs)
   
-  
-  
-  
-  #---------# #-----------# #---------# #---------# #-----------# #---------# 
+
+
+
+  #---------# #-----------# #---------# #---------# #-----------# #---------#
   #---------#       PLOT CALCIUM TRACES SORTED BY CLUSTER         #---------#
-  #---------# #-----------# #---------# #---------# #-----------# #---------# 
-  
+  #---------# #-----------# #---------# #---------# #-----------# #---------#
+
   idx = sort(c(est_cluster_neurons), index.return = T)$ix
-  idx = idx[ (sort(c(est_cluster_neurons))>1) & 
+  idx = idx[ (sort(c(est_cluster_neurons))>1) &
              (sort(c(est_cluster_neurons))<first_singleton) ]
-  
+
   length(est_cluster_neurons[idx]) # how many active neurons to plot?
   length(est_cluster_neurons[idx])/8*3  # how many neurons to plot in a full column
-  
-  
-  # rescale the series 
+
+
+  # rescale the series
   calcium_active = calcium[,idx]
   calcium_active = apply(calcium_active, 2,function(x) x/25)
-  
+
   TT = nrow(calcium_active)
   n = ncol(calcium_active)
-  
+
   calcium_active = calcium_active + matrix(rep(1:n, TT), TT, n, byrow=T)
   calcium_active = reshape2::melt((calcium_active))
   calcium_active$time = rep(1:TT, n)/15
   calcium_active$neuron = as.factor(as.numeric(calcium_active$Var2))
   calcium_active$spike = as.numeric(reshape2::melt((estimated_spikes[,idx]))$value)
   calcium_active$Cluster = as.factor(rep(est_cluster_neurons[idx], each = TT))
-  
+
   calcium_active = rev(calcium_active)
-  
+
   colors = c("1" = "black", "2" = "#9E0142", "3"="gold3", "4"="#009eb0", "5"="#0045bd","6"= "#5ba300",
              "7"="chocolate1", "8"="#ef2578", "9"="#532257", "10"="#feb991", "11" = "grey", "12" = "grey27"
   )
-  
+
   cond1 = as.numeric(calcium_active$neuron) <= ceiling(length(est_cluster_neurons[idx])/8*3)
-  
+
   length(unique(calcium_active$neuron[cond1]))
   subset_active = calcium_active[cond1,][calcium_active$spike[cond1]==1,]
-  
+
   data_sub = calcium_active[cond1,]
   data_sub$rev_neuron = rev(data_sub$neuron)
-  
+
   p1 = ggplot(data = data_sub, aes(x = time, y = value, color = Cluster)) +
     geom_ribbon(aes(x = time, ymax = value, ymin =as.numeric(neuron), fill=Cluster, color=Cluster, group = rev_neuron), alpha=0.08, lwd=0.1,
                 show.legend=TRUE)+
@@ -394,20 +396,20 @@ for(n_window in idx_to_run)
     )+
     guides(colour = guide_legend(nrow = 1)) +
     xlab("Time (seconds)")  +
-    ylab("Neuron") 
-  
-  
-  
-  cond2 = (as.numeric(calcium_active$neuron) > ceiling(length(est_cluster_neurons[idx])/8*3) )& 
+    ylab("Neuron")
+
+
+
+  cond2 = (as.numeric(calcium_active$neuron) > ceiling(length(est_cluster_neurons[idx])/8*3) )&
     (as.numeric(calcium_active$neuron) < ceiling(length(est_cluster_neurons[idx])/8*3)*2 )
-  
+
   length(unique(calcium_active$neuron[cond2]))
-  
+
   subset_active = calcium_active[cond2,][calcium_active$spike[cond2]==1,]
   data_sub = calcium_active[cond2,]
-  
+
   data_sub$rev_neuron = rev(data_sub$neuron)
-  
+
   p2 = ggplot(data = data_sub, aes(x = time, y = value, color = Cluster)) +
     geom_ribbon(aes(x = time, ymax = value, ymin =as.numeric(neuron), fill=Cluster, color=Cluster, group = rev_neuron), alpha=0.08, lwd=0.1,
                 show.legend=TRUE)+
@@ -441,15 +443,15 @@ for(n_window in idx_to_run)
     guides(colour = guide_legend(nrow = 1)) +
     xlab("Time (seconds)")  +
     ylab("")
-  
-  
+
+
   cond3 = as.numeric(calcium_active$neuron) >= ceiling(length(est_cluster_neurons[idx])/8*3)*2
   length(unique(calcium_active$neuron[cond3]))
   subset_active = calcium_active[cond3,][calcium_active$spike[cond3]==1,]
   data_sub = calcium_active[cond3,]
-  
+
   data_sub$rev_neuron = rev(data_sub$neuron)
-  
+
   p3 = ggplot(data = data_sub, aes(x = time, y = value, color = Cluster)) +
     geom_ribbon(aes(x = time, ymax = value, ymin =as.numeric(neuron), fill=Cluster, color=Cluster, group = rev_neuron), alpha=0.08, lwd=0.1,
                 show.legend=TRUE)+
@@ -481,10 +483,10 @@ for(n_window in idx_to_run)
       strip.background = element_rect( fill=NA, color="gray" )
     )+
     guides(colour = guide_legend(nrow = 1)) +
-    xlab("Time (seconds)")  + 
-    ylab("") 
-  
-  
+    xlab("Time (seconds)")  +
+    ylab("")
+
+
   dataf = data.frame(x = loc_neurons[,1], y = loc_neurons[,2], Cluster = factor(est_cluster_neurons))
   p4 = ggplot(dataf, aes(x = x, y=y))+
     scale_fill_manual(values = colors,
@@ -513,19 +515,19 @@ for(n_window in idx_to_run)
     )+
     xlab("x coordinate")  +
     ylab("y coordinate")
-  
-  
-  g <- ggarrange(p1, p2, 
-                 ggarrange(p3,p4, nrow=2, ncol=1, legend = F, heights = c(1.9,1)), 
+
+
+  g <- ggarrange(p1, p2,
+                 ggarrange(p3,p4, nrow=2, ncol=1, legend = F, heights = c(1.9,1)),
                  ncol=3, nrow=1,
                  common.legend = TRUE, legend="bottom")
   # g
-  
+
   filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_images/clustered_series_locations_win", n_window, ".pdf")
   ggsave(filename, g, width = 8, height = 9)
   filename = paste0("02_data_analysis/01_bSCDC_individual_trials/output_images/clustered_series_locations_win", n_window, ".png")
   ggsave(filename, g, width = 8, height = 9)
-  
+
   if(!load_precomputed){rm(out)}
   rm(calcium, calcium_active)
   rm(data_sub, dataf)

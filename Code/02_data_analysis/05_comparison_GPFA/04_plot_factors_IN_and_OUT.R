@@ -17,7 +17,7 @@ out_IN = read.csv(file = filename)
 str(out_IN)
 
 
-df_GP = data.frame("y" = c(out_IN[,1],out_IN[,3],out_IN[,4], out_OUT[,1]), 
+df_GP = data.frame("y" = c(out_IN[,6],out_IN[,3],out_IN[,1], out_OUT[,8]), 
                    "fac" = rep(c("Factor 1 - IN","Factor 2 - IN","Factor 3 - IN","Factor 1 - OUT"),each=45), time = rep(1:45, 4)/15)
 
 df_GP$y = df_GP$y * 1000
