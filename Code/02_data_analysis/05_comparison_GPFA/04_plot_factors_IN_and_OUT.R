@@ -8,16 +8,16 @@
 library(patchwork)
 library(ggplot2)
 
-filename = paste0("02_data_analysis/05_comparison_GPFA/RUN_GPFA_multi_trial_OUT/output_GPFA_OUT.csv")
+filename = paste0("02_data_analysis/05_comparison_GPFA/RUN_GPFA_multi_trial_OUT/output_GPFA_OUT_5kiter.csv")
 out_OUT = read.csv(file = filename)
 str(out_OUT)
 
-filename = paste0("02_data_analysis/05_comparison_GPFA/RUN_GPFA_multi_trial_IN/output_GPFA_IN.csv")
+filename = paste0("02_data_analysis/05_comparison_GPFA/RUN_GPFA_multi_trial_IN/output_GPFA_IN_5kiter.csv")
 out_IN = read.csv(file = filename)
 str(out_IN)
 
 
-df_GP = data.frame("y" = c(out_IN[,6],out_IN[,3],out_IN[,1], out_OUT[,8]), 
+df_GP = data.frame("y" = c(out_IN[,3],out_IN[,6],out_IN[,7], out_OUT[,1]), 
                    "fac" = rep(c("Factor 1 - IN","Factor 2 - IN","Factor 3 - IN","Factor 1 - OUT"),each=45), time = rep(1:45, 4)/15)
 
 df_GP$y = df_GP$y * 1000
