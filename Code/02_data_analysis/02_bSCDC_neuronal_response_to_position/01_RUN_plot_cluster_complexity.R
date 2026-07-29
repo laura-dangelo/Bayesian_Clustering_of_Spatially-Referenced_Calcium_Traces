@@ -104,7 +104,7 @@ for(i in idx){
                            cbind(x = data[win == i,]$pos1, 
                                  y = data[win == i,]$pos2,
                                  win = Chai[Loss$win == i,1],
-                                 mod = Chai[Loss$win == i,3],
+                                 mod = Chai[Loss$win == i,2],
                                  var = Chai[Loss$win == i,4]  )
   )  
 }
@@ -224,7 +224,7 @@ M <- ggplot()+
   geom_tile(aes(x=pull(newx_m),
                 y=pull(newy_m),
                 fill=round(c(fit_m$xyz.est$z2),4)))+
-  scale_fill_gradient2("Mode",low = "transparent",
+  scale_fill_gradient2("Mean",low = "transparent",
                        mid = "lightblue",
                        high = "darkblue",
                        midpoint = quantile(fit_m$xyz.est$z2,.975,na.rm=TRUE),
@@ -260,14 +260,14 @@ M <- ggplot()+
   )+
   xlab("x coordinate")  +
   ylab("y coordinate") +
-  ggtitle("Posterior mode of the number of clusters") +
+  ggtitle("Posterior mean of the number of clusters") +
   guides(colour=guide_colourbar(barwidth=8))
 
 
 M
-ggsave(filename = "02_data_analysis/02_bSCDC_neuronal_response_to_position/output_images/post_mode.png",
+ggsave(filename = "02_data_analysis/02_bSCDC_neuronal_response_to_position/output_images/post_mean.png",
        plot = M, width = 6, height = 6)
-ggsave(filename = "02_data_analysis/02_bSCDC_neuronal_response_to_position/output_images/post_mode.pdf",
+ggsave(filename = "02_data_analysis/02_bSCDC_neuronal_response_to_position/output_images/post_mean.pdf",
        plot = M, width = 6, height = 6)
 
 
