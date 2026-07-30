@@ -33,7 +33,7 @@ Large files (typically, outputs of the Gibbs sampler algorithm or the deconvolut
 
 
 ## Using the Repository
-All analyses can be replicated starting from the original `.mat` file (`M3424F`), which is openly available from the [Mendeley data repository](https://doi.org/10.17632/tnbwfw2pg2.2). However, some computations can be time-consuming, and we do not recommend starting from scratch.<br/>
+All analyses can be replicated starting from the original `.mat` file (`M3424F`), which is openly available from the [Mendeley data repository](https://data.mendeley.com/datasets/tnbwfw2pg2/3). However, some computations can be time-consuming, and we do not recommend starting from scratch.<br/>
 
 
 **We provide RDS files containing precomputed outputs of the inference procedure to facilitate replication of the analyses.** <br/>
