@@ -4,7 +4,7 @@
 #---------# #-----------# #---------# #---------# #-----------# #---------# 
 # This script produces the plots of the cluster complexity in relation to the mouse's position in the arena,
 # (Figure 8 of the main paper).
-# Specifically, it shows how the variance and the mode of the number of clusters changes depending on the spatial location.
+# Specifically, it shows how the mean and the variance of the number of clusters change depending on the spatial location.
 
 
 library(tidyverse)
@@ -196,7 +196,7 @@ ggsave(filename = "02_data_analysis/02_bSCDC_neuronal_response_to_position/outpu
 
 
 #--------------------# #--------------------# #--------------------# #--------------------# 
-#   Plot the smoothed surface of the mode of the clustering
+#   Plot the smoothed surface of the mean of the clustering
 #--------------------# #--------------------# #--------------------# #--------------------# 
 
 n <- nrow(unc_clust_ggplot)

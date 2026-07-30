@@ -4,10 +4,10 @@
 #---------# #-----------# #---------# #---------# #-----------# #---------# #---------# 
 
 # First part of the sensitivity analysis reported in Section S2.1 of the Supplementary Material. 
-# This script runs the Gibbs sampler algorithm on window 17 for varying values of the threshold a_low.
+# This script runs the Gibbs sampler algorithm on window 24 for varying values of the threshold a_low.
 
 # We study three different values for the threshold: 0, 0.5, 1
-# Here, we are omitting the computation for the value 1 since it has already been computed in the data_analysis scripts
+# Here, we are omitting the computation for the value 1 since it has already been computed in the data_analysis scripts.
 
 #  _________________________________
 #  YOU CAN AVOID RUNNING THIS SCRIPT 

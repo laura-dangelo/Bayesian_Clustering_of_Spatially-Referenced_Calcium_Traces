@@ -10,9 +10,9 @@
 #  YOU CAN AVOID RUNNING THIS SCRIPT 
 #  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 # This script produces the RDS files available in the output_RDS folder; specifically:
-#   - est_cluster_neurons_win17_alow_#.RDS
-#   - estimated_spikes_win17_alow_#.RDS
-#   - estimates_win17_alow_#.RDS
+#   - est_cluster_neurons_win24_alow_#.RDS
+#   - estimated_spikes_win24_alow_#.RDS
+#   - estimates_win24_alow_#.RDS
 # These quantities are then used in the next script, which compares the results for different values of a_low.
 
 library(ggplot2)

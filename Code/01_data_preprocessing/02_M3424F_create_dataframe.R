@@ -1,7 +1,7 @@
 #-------# #-------# #-------# #-------# #-------# 
-#
-#        Create dataset for analyses 
-#
+#                                               #
+#        Create dataset for analyses            #
+#                                               #
 #-------# #-------# #-------# #-------# #-------# 
 
 # This script standardizes the coordinates of the mouse position and creates the two areas (inner circle and outer ring).

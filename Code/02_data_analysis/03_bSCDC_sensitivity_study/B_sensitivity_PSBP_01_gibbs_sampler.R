@@ -4,7 +4,7 @@
 #---------# #-----------# #---------# #---------# #-----------# #---------# #---------# 
 
 # Second part of the sensitivity analysis reported in Section S2.1 of the Supplementary Material. 
-# This script runs the Gibbs sampler algorithm on window 17 for varying values of the parameter theta of 
+# This script runs the Gibbs sampler algorithm on window 24 for varying values of the parameter theta of 
 # the probit-stick-breaking process.
 
 #  _________________________________

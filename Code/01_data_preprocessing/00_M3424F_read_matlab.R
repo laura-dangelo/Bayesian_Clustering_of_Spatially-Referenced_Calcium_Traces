@@ -1,7 +1,7 @@
 #-------# #-------# #-------# #-------# #-------# #-------# #-------# #-------# 
-#
-#        Import original MAT file and create RDS
-#
+#                                                                             #
+#                  Import original MAT file and create RDS                    #
+#                                                                             #
 #-------# #-------# #-------# #-------# #-------# #-------# #-------# #-------# 
 
 # This script imports the original .mat data and saves to the Data folder the file M3424F_trial4.rds

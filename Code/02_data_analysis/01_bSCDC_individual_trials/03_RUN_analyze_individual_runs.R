@@ -5,9 +5,9 @@
 
 # This script produces the plots contained in the output_images folder:
 # - heatmap of the spike amplitudes (Figure 3 in the main paper; Figures S4, S7, and S10 in the Supplementary Material)
-# - calcium traces sorted and colored by cluster (Figure 4 in the main paper; Figures S5, S8, and S11 in the Supplementary Material)
+# - calcium traces sorted and colored by cluster (Figure 4 in the main paper; Figures S5, S9, and S12 in the Supplementary Material)
 # - trajectories of the spike probabilities, i.e., the transformed Gaussian processes (Figure 5 in the main paper; 
-#    Figures S6, S9, and S12 in the Supplementary Material)
+#    Figures S6, S8, and S11 in the Supplementary Material)
 
 # To avoid downloading all the runs of the Gibbs sampler, you can set load_precomputed = TRUE.
 # In this case, the script loads some pre-computed quantities:
@@ -18,7 +18,7 @@
 #
 # If you prefer running it "from scratch", set the logical variable load_precomputed to FALSE.
 
-# Also in this case, if you wish to reproduce the analyses only for the subset of windows 
+# Also in this case, if you wish to reproduce from scratch the analyses only for the subset of windows 
 # reported in the paper, you may set load_precomputed = FALSE and run_on_subset = TRUE.
 # On the contrary, if you wish to run the code on all the time windows, set run_on_subset = FALSE.
 # The script then executes a for loop over the selected time windows, and automatically

@@ -2,7 +2,7 @@
 #              CLUSTER SERIES USING CONSENSUS K-MEANS
 #-------------------# #-------------------# #-------------------#
 
-# These scripts replicate the comparison with the two-step approach reported in Section S4.3 of the Supplementary Material.
+# These scripts replicate the comparison with the two-step approach reported in Section S4.4 of the Supplementary Material.
 # Specifically, this script uses the consensus k-means algorithm of the package coca to obtain the clusters.
 
 #  _________________________________

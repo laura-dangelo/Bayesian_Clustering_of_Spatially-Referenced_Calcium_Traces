@@ -1,3 +1,7 @@
+#---------#    AUXILIARY FUNCTIONS     #---------#
+#---------#   don't run this script    #---------#
+
+
 setwd("02_data_analysis/02_bSCDC_neuronal_response_to_position/")
 
 source("00_auxiliary_functions_DONT_RUN.R")

@@ -2,7 +2,7 @@
 #                   PERFORM SPIKE DETECTION
 #-------------------# #-------------------# #-------------------#
 
-# These scripts replicate the comparison with the two-step approach reported in Section S4.3 of the Supplementary Material.
+# These scripts replicate the comparison with the two-step approach reported in Section S4.4 of the Supplementary Material.
 # Specifically, this script uses the L0 optimization method of Jewell and Witten (2020) to deconvolve the traces.
 
 #  _________________________________

@@ -1,9 +1,9 @@
-#-------# #-------# #-------# #-------# #-------# #-------# #-------# #-------# 
-#
-#        Import M3424F_trial4.RDS
-#        and extract individual quantities 
-#
-#-------# #-------# #-------# #-------# #-------# #-------# #-------# #-------# 
+#-------# #-------# #-------# #-------# #-------# #-------# 
+#                                                         #
+#        Import M3424F_trial4.RDS                         #
+#        and extract individual quantities                #
+#                                                         #
+#-------# #-------# #-------# #-------# #-------# #-------# 
 
 # This script imports the file M3424F_trial4.RDS, extracts the individual quantities of interest and
 # saves them as separate RDS files.
