@@ -4,6 +4,7 @@
 .DS_Store
 .o
 .so
+*.o
 
 results/*.RDS
 Data/M3424F.rds
