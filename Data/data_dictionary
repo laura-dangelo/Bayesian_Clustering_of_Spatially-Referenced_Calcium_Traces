@@ -79,3 +79,24 @@ Direct extraction from .mat file
 
 #-----------------------# #-----------------------# #-----------------------# #-----------------------#
   
+M3424F_trial4.rds
+Direct extraction from .mat file.
+
+List of 2
+ $ behav :List of 2
+  ..$ position: mouse position over time in the experiment
+  ..$ time    : timestamp
+ $ neuron:List of 7
+  ..$ A       : spike detection of Chen et al.
+  ..$ C       : calcium extraction of Chen et al.
+  ..$ C_raw   : raw observed calcium trace
+  ..$ S       : spike detection of Chen et al.
+  ..$ Cn      : spike detection of Chen et al.
+  ..$ centroid: neurons' anatomical locations
+  ..$ time    : timestamp
+
+  
+#-----------------------# #-----------------------# #-----------------------# #-----------------------#
+
+M3424F.rds
+Direct extraction from .mat file.
