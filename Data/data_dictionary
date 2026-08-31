@@ -80,7 +80,7 @@ Direct extraction from .mat file
 #-----------------------# #-----------------------# #-----------------------# #-----------------------#
   
 M3424F_trial4.rds
-Direct extraction from .mat file.
+Direct extraction from .mat file. Contains the fourth experiment performed on mouse M3424F.
 
 List of 2
  $ behav :List of 2
@@ -100,3 +100,5 @@ List of 2
 
 M3424F.rds
 Direct extraction from .mat file.
+
+List of 6. Each element of the list is an experiment, in the format as M3424F_trial4.rds.
