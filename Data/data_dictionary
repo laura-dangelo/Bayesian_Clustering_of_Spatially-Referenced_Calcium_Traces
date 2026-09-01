@@ -80,7 +80,7 @@ Direct extraction from .mat file
 #-----------------------# #-----------------------# #-----------------------# #-----------------------#
   
 M3424F_trial4.rds
-Direct extraction from .mat file.
+Direct extraction of experiment #4 for mouse M3424F from the original .mat file.
 
 List of 2
  $ behav :List of 2
@@ -97,6 +97,13 @@ List of 2
 
   
 #-----------------------# #-----------------------# #-----------------------# #-----------------------#
+
+M3424F.rds
+Direct extraction from .mat file. 
+The file contains a list of six experiments from mouse M3424F. Each one has the structure of M3424F_trial4.rds. 
+
+#-----------------------# #-----------------------# #-----------------------# #-----------------------#
+
 
 `Matlab_originals` contains the original `.mat` files downloaded from the public repository. We provide only the files corresponding to the mouse analyzed in this study, named `M3424F`.
 
