@@ -80,7 +80,7 @@ Direct extraction from .mat file
 #-----------------------# #-----------------------# #-----------------------# #-----------------------#
   
 M3424F_trial4.rds
-Direct extraction from .mat file. Contains the fourth experiment performed on mouse M3424F.
+Direct extraction from .mat file.
 
 List of 2
  $ behav :List of 2
@@ -98,7 +98,8 @@ List of 2
   
 #-----------------------# #-----------------------# #-----------------------# #-----------------------#
 
-M3424F.rds
-Direct extraction from .mat file.
+`Matlab_originals` contains the original `.mat` files downloaded from the public repository. We provide only the files corresponding to the mouse analyzed in this study, named `M3424F`.
 
-List of 6. Each element of the list is an experiment, in the format as M3424F_trial4.rds.
+The directory contains the auxiliary file `order_lookup_M2434_F.csv` and the folder `M3424`. The latter includes `behav.mat` and `neuronIndividuals_new.mat`, the original MATLAB files containing data from all six trials for mouse `M3424F`. It also contains the `RDS_by_trial` folder, which stores the complete data separately for each of the six trials. For a description of the structure of these files, refer to the previous object description.
+
+In the paper, we focus specifically on the fourth trial.

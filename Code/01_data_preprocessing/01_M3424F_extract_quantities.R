@@ -24,7 +24,7 @@
 
 
 
-M3424F_trial4 = readRDS("../Data/M3424F_trial4.rds")
+M3424F_trial4 = readRDS("../Data/Matlab_originals/M3424F/RDS_by_trial/M3424F_trial4.rds")
 
 str(M3424F_trial4)
 

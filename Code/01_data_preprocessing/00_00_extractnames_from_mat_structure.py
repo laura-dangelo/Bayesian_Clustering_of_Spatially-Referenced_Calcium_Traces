@@ -1,10 +1,16 @@
-# R> reticulate::py_require("h5py")
-# resolve_trial_order.py
+# STEP0: Download the large original file `neuronalindividuals_new.mat` and
+# Place into the folder `Data/Matlab_originals_M3424F`, together with `behav.mat
+
+# STEP1: This script produces a .csv files with labels to ease the extraction of .mat data into R
+# First, run IN R the following
+# py_require("h5py")
+# import("h5py")
+# Then, run in Python
 import h5py, csv, os
 
-mice = ["M3411", "M3412",  "M3421F", "M3422F", "M3424F", "M3425F"]   # fill in your mouse folder names
-  ############################## MAKE SURE TO EXTRACT AND PLACE THIS FOLDER FROM THE DATA REPO HERE:
-base = "Fig_1_3_tri_cir_sqr/"
+mice = ["M3424F"]   # fill in your mouse folder names
+############################## MAKE SURE TO EXTRACT AND PLACE THIS FOLDER FROM THE DATA REPO HERE:
+base = "../Data/Matlab_originals"
 
 rows = []
 missing = []
@@ -30,13 +36,14 @@ for mouse in mice:
     for i in range(6):
         rows.append([mouse_clean, i+1, behav_order[i], neuron_order[i]])
 
-with open("Data_extraction/shapes/trial_order_lookup.csv", "w", newline="") as out:
+with open("../Data/Matlab_originals/order_lookup_M3424_F.csv", "w", newline="") as out:
     w = csv.writer(out)
     w.writerow(["mouse", "trial", "behav_group", "neuron_group"])
     w.writerows(rows)
 
-print(f"wrote trial_order_lookup.csv with {len(rows)} rows")
+print(f"wrote order_lookup_M3424_F.csv with {len(rows)} rows")
 if missing:
     print(f"\n{len(missing)} file(s) not found, skipped:")
     for m in missing:
         print(" -", m)
+

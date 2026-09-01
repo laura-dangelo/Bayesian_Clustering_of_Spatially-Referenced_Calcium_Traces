@@ -5,6 +5,8 @@
 #-------# #-------# #-------# #-------# #-------# #-------# #-------# #-------# 
 
 # This script imports the original .mat data and saves to the Data folder the file M3424F_trial4.rds
+# FIRST - RUN THE ASSOCIATED PYTHON CODE
+# You need the `order_lookup_M3424_F.csv` file - create it with the provided Python code.
 
 #  _________________________________
 #  YOU CAN AVOID RUNNING THIS SCRIPT 
@@ -13,10 +15,9 @@
 # the RDS files produced by this script are available in the "Data" folder.
 # You can download these files and copy them in the Data folder of this repository.
 
-# FIRST - RUN THE ASSOCIATED PYTHON CODE
 
 library(rhdf5)
-mice <-  c("M3411", "M3412",  "M3421F", "M3422F", "M3424F", "M3425F")   # fill in your mouse folder names
+mice <-  c("M3424F")   # fill in your mouse folder names - this can be extended provided the original files are downloaded and properly placed
 
 # Bypasses h5read()'s H5Lexists() pre-check, which errors on
 # the case-colliding sibling names MATLAB's HDF5 writer creates
@@ -35,7 +36,7 @@ read_dataset <- function(file, path) {
   data
 }
 
-lookup <- read.csv("01_data_preprocessing/trial_order_lookup.csv", stringsAsFactors = FALSE)
+lookup <- read.csv("../Data/Matlab_originals/order_lookup_M3424_F.csv", stringsAsFactors = FALSE)
 
 all_trials <- list()
 
@@ -43,7 +44,7 @@ for (top in 1:length(mice)) {
   
   mouse <- mice[top]
   ############################## MAKE SURE TO EXTRACT AND PLACE THIS FOLDER FROM THE DATA REPO HERE:
-  file <- paste0("Fig_1_3_tri_cir_sqr/", mouse)
+  file <- paste0("../Data/Matlab_originals/", mouse)
   behav_file  <- paste0(file, "/behav.mat")
   neuron_file <- paste0(file, "/neuronIndividuals_new.mat")
   
@@ -73,13 +74,10 @@ for (top in 1:length(mice)) {
   
   all_trials[[mouse]] <- trials
 }
+saveRDS(all_trials, "../Data/all_mice_trials.RDS") # contains only the 4th mice
 
 
-out_dir <- "01_data_preprocessing/all_trials_saved"
-dir.create(file.path(out_dir, "by_trial"), recursive = TRUE, showWarnings = FALSE)
-dir.create(file.path(out_dir, "by_mouse"), recursive = TRUE, showWarnings = FALSE)
-
-all_trials <- readRDS("mice_trials.RDS")
+all_trials <- readRDS("../Data/all_mice_trials.RDS")
 
 for (mouse in names(all_trials)) {
   
@@ -89,18 +87,12 @@ for (mouse in names(all_trials)) {
   for (trial_name in names(mouse_trials)) {
     saveRDS(
       mouse_trials[[trial_name]],
-      file.path(out_dir, "by_trial", paste0(mouse, "_", trial_name, ".rds"))
+      file.path("../Data/Matlab_originals/M3424F/RDS_by_trial", paste0(mouse, "_", trial_name, ".rds"))
     )
     message(mouse, " ", trial_name, " saved")
   }
   
-  # save all 6 trials for this mouse together
-  saveRDS(
-    mouse_trials,
-    file.path(out_dir, "by_mouse", paste0(mouse, ".rds"))
-  )
-  
   message("=== ", mouse, " complete ===")
 }
 
-
+# We will focus on the FOURTH TRIAL
